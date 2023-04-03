@@ -18,5 +18,6 @@ namespace Domain.Entities
         public string Imagen { get; set; }
 
         public IList<ComandaMercaderia> ComandaMercaderias { get; set; }
+        public TipoMercaderia TipoMercaderia { get; set; }
     }
 }

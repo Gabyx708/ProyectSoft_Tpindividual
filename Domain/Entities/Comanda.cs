@@ -13,8 +13,6 @@ namespace Domain.Entities
         public int PrecioTotal { get; set; }
         public DateTime Date { get; set; }
 
-        public FormaEntrega FormaEntrega { get; set; }
-
         public IList<ComandaMercaderia> ComandaMercaderias { get; set; }
     }
 }

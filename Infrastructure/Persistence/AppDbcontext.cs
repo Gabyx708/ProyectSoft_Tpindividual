@@ -29,6 +29,7 @@ namespace Infrastructure.Persistence
             {
                 entity.HasKey(e => e.ComandaId);
                 entity.Property(e => e.ComandaId).ValueGeneratedOnAdd();
+            
             }
             );
 
@@ -51,6 +52,7 @@ namespace Infrastructure.Persistence
                       .WithMany(cm => cm.ComandaMercaderias)
                       .HasForeignKey(c => c.ComandaId);
             });
+
                 
         }
 

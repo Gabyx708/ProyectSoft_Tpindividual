@@ -10,5 +10,7 @@ namespace Domain.Entities
     {
         public int FormaEntregaId { get; set; }
         public string Descripcion { get; set; }
+
+        public Comanda Comanda { get; set; }
     }
 }
