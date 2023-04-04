@@ -1156,6 +1156,19 @@
           }
         }
       },
+      "Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Application.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3511,6 +3524,11 @@
         "version.txt"
       ]
     },
+    "Application/1.0.0": {
+      "type": "project",
+      "path": "../AppConsole/Application.csproj",
+      "msbuildProject": "../AppConsole/Application.csproj"
+    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -3519,7 +3537,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Domain >= 1.0.0",
+      "Application >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.4",
@@ -3553,8 +3571,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\1_C_2023_UNI\\Proyect_soft\\TPindividual\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\1_C_2023_UNI\\Proyect_soft\\TPindividual\\Domain\\Domain.csproj"
+            "D:\\1_C_2023_UNI\\Proyect_soft\\TPindividual\\AppConsole\\Application.csproj": {
+              "projectPath": "D:\\1_C_2023_UNI\\Proyect_soft\\TPindividual\\AppConsole\\Application.csproj"
             }
           }
         }

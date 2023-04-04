@@ -9,7 +9,18 @@ using System.Threading.Tasks;
 namespace Infrastructure.Persistence
 {
     public class AppDbcontext : DbContext 
-    {
+    {   
+
+        private static AppDbcontext instance = null;
+        public static AppDbcontext getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new AppDbcontext();
+            }
+
+            return instance;
+        }
 
         public DbSet<Comanda> Comandas { get; set; }
         public DbSet<ComandaMercaderia> comandaMercaderias { get; set; }
@@ -29,6 +40,10 @@ namespace Infrastructure.Persistence
             {
                 entity.HasKey(e => e.ComandaId);
                 entity.Property(e => e.ComandaId).ValueGeneratedOnAdd();
+
+                entity.HasOne<FormaEntrega>(c => c.FormaEntrega)
+                       .WithMany(fe => fe.comandas)
+                       .HasForeignKey(c => c.FormaEntregaId);
             
             }
             );
@@ -37,7 +52,12 @@ namespace Infrastructure.Persistence
             {
                 entity.HasKey(e => e.MercaderiaId);
                 entity.Property(e => e.MercaderiaId).ValueGeneratedOnAdd();
+
+                entity.HasOne<TipoMercaderia>(m => m.TipoMercaderia)
+                       .WithMany(tp => tp.mercaderias)
+                       .HasForeignKey(m => m.TipoMercaderiaId);
             });
+
 
             modelBuilder.Entity<ComandaMercaderia>(entity =>
             {
@@ -52,6 +72,20 @@ namespace Infrastructure.Persistence
                       .WithMany(cm => cm.ComandaMercaderias)
                       .HasForeignKey(c => c.ComandaId);
             });
+
+            modelBuilder.Entity<TipoMercaderia>(entity =>
+            {
+                entity.HasKey(e => e.TipoMercaderiaId);
+                entity.Property(e => e.TipoMercaderiaId).ValueGeneratedOnAdd();
+
+            });
+
+            modelBuilder.Entity<FormaEntrega>(entity => {
+                entity.HasKey(e => e.FormaEntregaId);
+                entity.Property(e => e.FormaEntregaId).ValueGeneratedOnAdd();
+            });
+
+          
 
                 
         }

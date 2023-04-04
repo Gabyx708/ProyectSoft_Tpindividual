@@ -39,8 +39,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("ComandaId");
 
-                    b.HasIndex("FormaEntregaId")
-                        .IsUnique();
+                    b.HasIndex("FormaEntregaId");
 
                     b.ToTable("Comandas");
                 });
@@ -141,11 +140,13 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Comanda", b =>
                 {
-                    b.HasOne("Domain.Entities.FormaEntrega", null)
-                        .WithOne("Comanda")
-                        .HasForeignKey("Domain.Entities.Comanda", "FormaEntregaId")
+                    b.HasOne("Domain.Entities.FormaEntrega", "FormaEntrega")
+                        .WithMany("comandas")
+                        .HasForeignKey("FormaEntregaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("FormaEntrega");
                 });
 
             modelBuilder.Entity("Domain.Entities.ComandaMercaderia", b =>
@@ -170,7 +171,7 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.Mercaderia", b =>
                 {
                     b.HasOne("Domain.Entities.TipoMercaderia", "TipoMercaderia")
-                        .WithMany()
+                        .WithMany("mercaderias")
                         .HasForeignKey("TipoMercaderiaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -185,13 +186,17 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.FormaEntrega", b =>
                 {
-                    b.Navigation("Comanda")
-                        .IsRequired();
+                    b.Navigation("comandas");
                 });
 
             modelBuilder.Entity("Domain.Entities.Mercaderia", b =>
                 {
                     b.Navigation("ComandaMercaderias");
+                });
+
+            modelBuilder.Entity("Domain.Entities.TipoMercaderia", b =>
+                {
+                    b.Navigation("mercaderias");
                 });
 #pragma warning restore 612, 618
         }
