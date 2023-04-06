@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
+using Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,26 @@ namespace Infrastructure.Querys
 {
     public class FormaEntregaQuery : IFormaEntregaQuery
     {
+        private readonly AppDbcontext context;
+
+        public FormaEntregaQuery()
+        {
+            context = AppDbcontext.getInstance();
+        }
+
         public FormaEntrega GetFormaEntrega(int Formaentregaid)
         {
-            throw new NotImplementedException();
+           var FormaEntregaEncontrada = context.Find<FormaEntrega>(Formaentregaid);
+            if(FormaEntregaEncontrada != null)
+            {
+                return FormaEntregaEncontrada;
+            }
+            return null;
         }
 
         public List<FormaEntrega> GetListFormaEntrega()
         {
-            throw new NotImplementedException();
+           return context.FormaEntregas.ToList<FormaEntrega>();
         }
     }
 }

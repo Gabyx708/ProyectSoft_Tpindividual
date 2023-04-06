@@ -20,7 +20,15 @@ namespace RestauranteApp
             IFormaEntregaQuery query = new FormaEntregaQuery();
 
             FormaEntregaServices x = new FormaEntregaServices(command, query);
-            x.createFormaentrega("en monopatin");
+            FormaEntrega test = x.getByid(15);
+            Console.WriteLine("ENCONTREEEE: " + test.Descripcion);
+           List<FormaEntrega> listita = x.getAll();
+            x.deleteFormaentrega(15);
+
+            foreach (var z in listita)
+            {
+                Console.WriteLine(z.FormaEntregaId+" "+z.Descripcion);
+            }
 
             /*if (desarrollo.FormaEntregaData())
             {

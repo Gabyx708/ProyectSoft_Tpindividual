@@ -9,8 +9,8 @@ namespace Application.Interfaces
 {
     public interface IFormaEntregaCommand
     {
-        Task InsertFormaEntrega(FormaEntrega formaEntrega);
+        void InsertFormaEntrega(FormaEntrega formaEntrega);
 
-        Task RemoveFormaEntrega(int formaentregaid);
+        void RemoveFormaEntrega(int formaentregaid);
     }
 }

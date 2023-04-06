@@ -11,7 +11,7 @@ namespace Domain.Entities
         public Guid ComandaId { get; set; }
         public int FormaEntregaId { get; set; }
         public int PrecioTotal { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Fecha { get; set; }
 
         public FormaEntrega FormaEntrega { get; set; }
 

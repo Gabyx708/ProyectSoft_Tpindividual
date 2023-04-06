@@ -18,17 +18,17 @@ namespace Infrastructure.Commands
             context = AppDbcontext.getInstance();
         }
 
-        public async Task InsertFormaEntrega(FormaEntrega formaEntrega)
+        public  void InsertFormaEntrega(FormaEntrega formaEntrega)
         {
-           context.Add(formaEntrega);
-           await context.SaveChangesAsync();
+            context.Add(formaEntrega);
+            context.SaveChanges();
         }
 
-        public async Task RemoveFormaEntrega(int formaEntregaid)
+        public  void RemoveFormaEntrega(int formaEntregaid)
         {
-            context.Add(formaEntregaid);
-
-            await context.SaveChangesAsync();
+            FormaEntrega FormaEntregaEliminar = context.FormaEntregas.Single(fe => fe.FormaEntregaId == formaEntregaid);
+            context.Remove<FormaEntrega>(FormaEntregaEliminar);
+            context.SaveChanges();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Application
             _query = query;
         }
 
-        public  async Task<FormaEntrega> createFormaentrega(string Descripcion)
+        public   FormaEntrega createFormaentrega(string Descripcion)
         {
             var formaEntrega = new FormaEntrega
             {
@@ -27,26 +27,26 @@ namespace Application
             };
 
 
-            await _command.InsertFormaEntrega(formaEntrega);
+            _command.InsertFormaEntrega(formaEntrega);
             return formaEntrega;
         }
 
-        public Task<FormaEntrega> deleteFormaentrega(int FormaEntregaid)
+        public void deleteFormaentrega(int FormaEntregaid)
         {
-            throw new NotImplementedException();
+            _command.RemoveFormaEntrega(FormaEntregaid);
         }
 
-        public Task<List<FormaEntrega>> getAll()
+        public List<FormaEntrega> getAll()
         {
-            throw new NotImplementedException();
+           return  _query.GetListFormaEntrega();
         }
 
-        public Task<FormaEntrega> getByid(int FormaEntregaid)
+        public FormaEntrega getByid(int FormaEntregaid)
         {
-            throw new NotImplementedException();
+            return _query.GetFormaEntrega(FormaEntregaid);
         }
 
-        public Task<FormaEntrega> UpdateFormaentrega(int FormaEntregaid)
+        public FormaEntrega UpdateFormaentrega(int FormaEntregaid)
         {
             throw new NotImplementedException();
         }
