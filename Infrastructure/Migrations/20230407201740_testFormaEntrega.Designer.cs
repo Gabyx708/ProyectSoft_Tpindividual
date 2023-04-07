@@ -4,6 +4,7 @@ using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbcontext))]
-    partial class AppDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20230407201740_testFormaEntrega")]
+    partial class testFormaEntrega
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,17 +90,17 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            FormaEntregaId = 10,
+                            FormaEntregaId = 45,
                             Descripcion = "Salon"
                         },
                         new
                         {
-                            FormaEntregaId = 20,
+                            FormaEntregaId = 90,
                             Descripcion = "Delivery"
                         },
                         new
                         {
-                            FormaEntregaId = 30,
+                            FormaEntregaId = 34,
                             Descripcion = "Pedidos Ya"
                         });
                 });
@@ -158,58 +161,6 @@ namespace Infrastructure.Migrations
                     b.HasKey("TipoMercaderiaId");
 
                     b.ToTable("TipoMercaderias");
-
-                    b.HasData(
-                        new
-                        {
-                            TipoMercaderiaId = 1,
-                            Descripcion = "Entrada"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 2,
-                            Descripcion = "Minutas"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 3,
-                            Descripcion = "Pastas"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 4,
-                            Descripcion = "Parilla"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 5,
-                            Descripcion = "Pizzas"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 6,
-                            Descripcion = "Sandwich"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 7,
-                            Descripcion = "Ensaladas"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 8,
-                            Descripcion = "Bebidas"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 9,
-                            Descripcion = "Cerveza artesanal"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 10,
-                            Descripcion = "Postres"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Comanda", b =>

@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Infrastructure.Persistence.TestData;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -95,9 +96,10 @@ namespace Infrastructure.Persistence
 
             });
 
-          
+            //carga de datos iniciales
+            modelBuilder.ApplyConfiguration(new FormaEntregaConfiguration());
+            modelBuilder.ApplyConfiguration(new TipoMercaderiaConfiguration());
 
-                
         }
 
 
