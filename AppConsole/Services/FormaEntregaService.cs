@@ -46,9 +46,9 @@ namespace Application.Services
             return _query.GetFormaEntrega(FormaEntregaid);
         }
 
-        public FormaEntrega UpdateFormaentrega(int FormaEntregaid)
+        public void UpdateFormaentrega(int FormaEntregaid)
         {
-            throw new NotImplementedException();
+             _command.UpdateFormaEntrega(FormaEntregaid);
         }
     }
 }

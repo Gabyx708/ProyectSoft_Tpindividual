@@ -15,7 +15,7 @@ namespace RestauranteApp
 
             //prepareData desarrollo = new prepareData();
 
-            IComandaCommand command = new ComandaCommand();
+            /*IComandaCommand command = new ComandaCommand();
             IComandaQuery query = new ComandaQuery();
             IComandaService comandaSer = new ComandaService(command, query);
 
@@ -31,7 +31,7 @@ namespace RestauranteApp
             DateTime now = new DateTime(2023, 06, 04);
             comandaSer.createComanda(test, 300,now);
            
-            Console.WriteLine("ENCONTREEEE: " + test.Descripcion);
+            Console.WriteLine("ENCONTREEEE: " + test.Descripcion);*/
 
 
 
