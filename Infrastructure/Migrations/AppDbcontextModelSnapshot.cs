@@ -28,7 +28,7 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("FormaEntregaId")
@@ -77,7 +77,8 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("FormaEntregaId");
 
@@ -94,11 +95,13 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Imagen")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Ingredientes")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -109,7 +112,8 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Preparacion")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int>("TipoMercaderiaId")
                         .HasColumnType("int");
@@ -131,7 +135,8 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("TipoMercaderiaId");
 

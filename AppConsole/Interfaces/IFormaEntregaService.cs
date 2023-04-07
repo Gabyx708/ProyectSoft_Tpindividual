@@ -11,12 +11,9 @@ namespace Application.Interfaces
     { 
         //el service debe tener los metodos de CRUD
         FormaEntrega createFormaentrega(string Descripcion);
-
-       FormaEntrega UpdateFormaentrega(int FormaEntregaid);
-
+        FormaEntrega UpdateFormaentrega(int FormaEntregaid);
         void deleteFormaentrega(int FormaEntregaid);
         List<FormaEntrega> getAll();
-
         FormaEntrega getByid(int FormaEntregaid);
     }
 }

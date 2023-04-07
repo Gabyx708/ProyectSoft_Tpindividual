@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbcontext))]
-    [Migration("20230403002234_init")]
-    partial class init
+    [Migration("20230407020547_reintento")]
+    partial class reintento
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,7 +31,7 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("FormaEntregaId")
@@ -80,7 +80,8 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("FormaEntregaId");
 
@@ -97,11 +98,13 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Imagen")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Ingredientes")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -112,12 +115,15 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Preparacion")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int>("TipoMercaderiaId")
                         .HasColumnType("int");
 
                     b.HasKey("MercaderiaId");
+
+                    b.HasIndex("TipoMercaderiaId");
 
                     b.ToTable("Mercaderias");
                 });
@@ -132,7 +138,8 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("TipoMercaderiaId");
 
@@ -142,7 +149,7 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.Comanda", b =>
                 {
                     b.HasOne("Domain.Entities.FormaEntrega", "FormaEntrega")
-                        .WithMany()
+                        .WithMany("comandas")
                         .HasForeignKey("FormaEntregaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -169,14 +176,35 @@ namespace Infrastructure.Migrations
                     b.Navigation("Mercaderia");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Mercaderia", b =>
+                {
+                    b.HasOne("Domain.Entities.TipoMercaderia", "TipoMercaderia")
+                        .WithMany("mercaderias")
+                        .HasForeignKey("TipoMercaderiaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TipoMercaderia");
+                });
+
             modelBuilder.Entity("Domain.Entities.Comanda", b =>
                 {
                     b.Navigation("ComandaMercaderias");
                 });
 
+            modelBuilder.Entity("Domain.Entities.FormaEntrega", b =>
+                {
+                    b.Navigation("comandas");
+                });
+
             modelBuilder.Entity("Domain.Entities.Mercaderia", b =>
                 {
                     b.Navigation("ComandaMercaderias");
+                });
+
+            modelBuilder.Entity("Domain.Entities.TipoMercaderia", b =>
+                {
+                    b.Navigation("mercaderias");
                 });
 #pragma warning restore 612, 618
         }

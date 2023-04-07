@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application
+namespace Application.Services
 {
     public class FormaEntregaServices : IFormaEntregaService
     {
@@ -19,7 +19,7 @@ namespace Application
             _query = query;
         }
 
-        public   FormaEntrega createFormaentrega(string Descripcion)
+        public FormaEntrega createFormaentrega(string Descripcion)
         {
             var formaEntrega = new FormaEntrega
             {
@@ -38,7 +38,7 @@ namespace Application
 
         public List<FormaEntrega> getAll()
         {
-           return  _query.GetListFormaEntrega();
+            return _query.GetListFormaEntrega();
         }
 
         public FormaEntrega getByid(int FormaEntregaid)

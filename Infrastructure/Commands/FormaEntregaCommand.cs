@@ -30,5 +30,12 @@ namespace Infrastructure.Commands
             context.Remove<FormaEntrega>(FormaEntregaEliminar);
             context.SaveChanges();
         }
+
+        public void UpdateFormaEntrega(int formaentregaid)
+        {
+            FormaEntrega FormaEntregaUpdate = context.FormaEntregas.Single(fe => fe.FormaEntregaId == formaentregaid);
+            context.Update<FormaEntrega>(FormaEntregaUpdate);
+            context.SaveChanges();
+        }
     }
 }

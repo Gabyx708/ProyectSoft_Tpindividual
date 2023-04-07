@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class reintento : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,29 +17,11 @@ namespace Infrastructure.Migrations
                 {
                     FormaEntregaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Descripcion = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_FormaEntregas", x => x.FormaEntregaId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Mercaderias",
-                columns: table => new
-                {
-                    MercaderiaId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TipoMercaderiaId = table.Column<int>(type: "int", nullable: false),
-                    Precio = table.Column<int>(type: "int", nullable: false),
-                    Ingredientes = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Preparacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Imagen = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Mercaderias", x => x.MercaderiaId);
                 });
 
             migrationBuilder.CreateTable(
@@ -48,7 +30,7 @@ namespace Infrastructure.Migrations
                 {
                     TipoMercaderiaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Descripcion = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,7 +44,7 @@ namespace Infrastructure.Migrations
                     ComandaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FormaEntregaId = table.Column<int>(type: "int", nullable: false),
                     PrecioTotal = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Fecha = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -72,6 +54,30 @@ namespace Infrastructure.Migrations
                         column: x => x.FormaEntregaId,
                         principalTable: "FormaEntregas",
                         principalColumn: "FormaEntregaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Mercaderias",
+                columns: table => new
+                {
+                    MercaderiaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TipoMercaderiaId = table.Column<int>(type: "int", nullable: false),
+                    Precio = table.Column<int>(type: "int", nullable: false),
+                    Ingredientes = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Preparacion = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Imagen = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Mercaderias", x => x.MercaderiaId);
+                    table.ForeignKey(
+                        name: "FK_Mercaderias_TipoMercaderias_TipoMercaderiaId",
+                        column: x => x.TipoMercaderiaId,
+                        principalTable: "TipoMercaderias",
+                        principalColumn: "TipoMercaderiaId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -115,6 +121,11 @@ namespace Infrastructure.Migrations
                 name: "IX_Comandas_FormaEntregaId",
                 table: "Comandas",
                 column: "FormaEntregaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Mercaderias_TipoMercaderiaId",
+                table: "Mercaderias",
+                column: "TipoMercaderiaId");
         }
 
         /// <inheritdoc />
@@ -124,9 +135,6 @@ namespace Infrastructure.Migrations
                 name: "comandaMercaderias");
 
             migrationBuilder.DropTable(
-                name: "TipoMercaderias");
-
-            migrationBuilder.DropTable(
                 name: "Comandas");
 
             migrationBuilder.DropTable(
@@ -134,6 +142,9 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "FormaEntregas");
+
+            migrationBuilder.DropTable(
+                name: "TipoMercaderias");
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿
-using Application;
-using Application.Interfaces;
+﻿using Application.Interfaces;
+using Application.Services;
 using Domain.Entities;
 using Infrastructure.Commands;
 using Infrastructure.Persistence;
@@ -16,19 +15,25 @@ namespace RestauranteApp
 
             //prepareData desarrollo = new prepareData();
 
-            IFormaEntregaCommand command = new FormaEntregaCommand();
-            IFormaEntregaQuery query = new FormaEntregaQuery();
+            IComandaCommand command = new ComandaCommand();
+            IComandaQuery query = new ComandaQuery();
+            IComandaService comandaSer = new ComandaService(command, query);
 
-            FormaEntregaServices x = new FormaEntregaServices(command, query);
-            FormaEntrega test = x.getByid(15);
+            IFormaEntregaCommand fe_comanda = new FormaEntregaCommand();
+            IFormaEntregaQuery fe_query = new FormaEntregaQuery();
+            
+
+            IFormaEntregaService x = new FormaEntregaServices(fe_comanda, fe_query);
+            x.createFormaentrega("monopatin acuatico");
+            x.createFormaentrega("avion");
+            FormaEntrega test = x.getByid(1);
+
+            DateTime now = new DateTime(2023, 06, 04);
+            comandaSer.createComanda(test, 300,now);
+           
             Console.WriteLine("ENCONTREEEE: " + test.Descripcion);
-           List<FormaEntrega> listita = x.getAll();
-            x.deleteFormaentrega(15);
 
-            foreach (var z in listita)
-            {
-                Console.WriteLine(z.FormaEntregaId+" "+z.Descripcion);
-            }
+
 
             /*if (desarrollo.FormaEntregaData())
             {

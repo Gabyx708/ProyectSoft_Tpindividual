@@ -12,5 +12,7 @@ namespace Application.Interfaces
         void InsertFormaEntrega(FormaEntrega formaEntrega);
 
         void RemoveFormaEntrega(int formaentregaid);
+
+        void UpdateFormaEntrega(int formaentregaid);
     }
 }
