@@ -19,12 +19,13 @@ namespace Application.Services
             _query = query;
         }
 
-        public ComandaMercaderia createComandaMercaderia(int ComandaMercaderiaId, Guid ComandaId)
+        public ComandaMercaderia createComandaMercaderia(int MercaderiaId, Guid ComandaId)
         {
             var comandaMercaderia = new ComandaMercaderia
             {
-                ComandaMercaderiaId = ComandaMercaderiaId,
+                MercaderiaId = MercaderiaId,
                 ComandaId = ComandaId
+       
             };
 
             _command.insertComandaMercaderia(comandaMercaderia);

@@ -15,9 +15,7 @@ namespace RestauranteApp
 
             Menu test = new Menu();
             test.handle();
-            Console.Write("Ingresa una opcion: ");
-            int op = int.Parse(Console.ReadLine());
-            test.elegirOpcion(op);
+            test.optionsLabel();
             
         }
     }

@@ -1,4 +1,5 @@
-﻿using RestauranteApp.ResatauranteFunctions;
+﻿using Domain.Entities;
+using RestauranteApp.ResatauranteFunctions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,12 @@ namespace RestauranteApp
         public void VerMercaderias()
         {
             new RestauranteVerMercaderias().listarMercaderia();
+        }
+
+
+        private List<FormaEntrega> conseguirFormasDeEntrega()
+        {
+            return new RestauranteFormasDeEntrega().formaEntregas();
         }
 
     }

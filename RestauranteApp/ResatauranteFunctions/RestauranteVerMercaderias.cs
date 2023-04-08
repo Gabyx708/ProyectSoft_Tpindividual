@@ -22,7 +22,13 @@ namespace RestauranteApp.ResatauranteFunctions
 
             foreach (Mercaderia mercaderia in listaMercaderia)
             {
-                Console.WriteLine(mercaderia.Nombre);
+                Console.WriteLine("************************");
+                Console.WriteLine("Codigo: "+mercaderia.MercaderiaId);
+                Console.WriteLine("nombre: "+mercaderia.Nombre);
+                Console.WriteLine("precio U$D: "+mercaderia.Precio);
+                Console.WriteLine("preparacion: "+mercaderia.Preparacion);
+                Console.WriteLine("ingredientes: "+mercaderia.Ingredientes);
+                Console.WriteLine("************************\n");
             }
         }
 
