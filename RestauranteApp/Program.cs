@@ -13,38 +13,12 @@ namespace RestauranteApp
         {
             Console.WriteLine("TEST DE APLICACION: \n");
 
-            //prepareData desarrollo = new prepareData();
-
-            /*IComandaCommand command = new ComandaCommand();
-            IComandaQuery query = new ComandaQuery();
-            IComandaService comandaSer = new ComandaService(command, query);
-
-            IFormaEntregaCommand fe_comanda = new FormaEntregaCommand();
-            IFormaEntregaQuery fe_query = new FormaEntregaQuery();
+            Menu test = new Menu();
+            test.handle();
+            Console.Write("Ingresa una opcion: ");
+            int op = int.Parse(Console.ReadLine());
+            test.elegirOpcion(op);
             
-
-            IFormaEntregaService x = new FormaEntregaServices(fe_comanda, fe_query);
-            x.createFormaentrega("monopatin acuatico");
-            x.createFormaentrega("avion");
-            FormaEntrega test = x.getByid(1);
-
-            DateTime now = new DateTime(2023, 06, 04);
-            comandaSer.createComanda(test, 300,now);
-           
-            Console.WriteLine("ENCONTREEEE: " + test.Descripcion);*/
-
-
-
-            /*if (desarrollo.FormaEntregaData())
-            {
-                Console.WriteLine("datos de prueba de Forma Entrega cargados exitosamete");
-            }
-
-            if (desarrollo.TipoMercaderiaData())
-            {
-                Console.WriteLine("datos de prueba de TipoMercaderia cargados exitosamete");
-            }*/
-
         }
     }
 }

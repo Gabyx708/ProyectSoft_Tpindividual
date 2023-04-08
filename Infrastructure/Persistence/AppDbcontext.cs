@@ -99,6 +99,7 @@ namespace Infrastructure.Persistence
             //carga de datos iniciales
             modelBuilder.ApplyConfiguration(new FormaEntregaConfiguration());
             modelBuilder.ApplyConfiguration(new TipoMercaderiaConfiguration());
+            modelBuilder.ApplyConfiguration(new MercaderiaConfiguration());
 
         }
 
