@@ -13,6 +13,6 @@ namespace Application.Interfaces
         void updateComanda(int comandaId);
         void deleteComanda(int comandaId);
         List<Comanda> getAll();
-        Comanda getByid(int comandaId);
+        Comanda getByid(Guid comandaId);
     }
 }

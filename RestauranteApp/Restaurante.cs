@@ -29,6 +29,22 @@ namespace RestauranteApp
             new RestauranteVerMercaderias().listarMercaderia();
         }
 
+        public void hacerPedido()
+        {
+            new RestauranteVerMercaderias().listaMercaderiaSimplificada();
+            new RestauranteHacerPedido().hacerUnPedido();
+        }
+
+        public void consultarPedido()
+        {
+            new RestauranVerPedidos().consultarPedido();
+        }
+
+        public void verPedidos()
+        {
+            new RestauranVerPedidos().listarPedidos();
+        }
+
 
         private List<FormaEntrega> conseguirFormasDeEntrega()
         {

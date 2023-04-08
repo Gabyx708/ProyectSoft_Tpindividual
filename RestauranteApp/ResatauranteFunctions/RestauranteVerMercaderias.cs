@@ -32,5 +32,15 @@ namespace RestauranteApp.ResatauranteFunctions
             }
         }
 
+        public void listaMercaderiaSimplificada()
+        {
+            List<Mercaderia> listaMercaderia = service.getAll();
+
+            foreach (Mercaderia mercaderia in listaMercaderia)
+            {
+                Console.WriteLine("| Codigo: "+mercaderia.MercaderiaId+"| nombre: "+mercaderia.Nombre+"| precio U$D: "+mercaderia.Precio+"|");
+            }
+        }
+
     }
 }

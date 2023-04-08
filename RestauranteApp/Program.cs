@@ -11,11 +11,10 @@ namespace RestauranteApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("TEST DE APLICACION: \n");
 
-            Menu test = new Menu();
-            test.handle();
-            test.optionsLabel();
+            Menu App = new Menu();
+            App.handle();
+            App.optionsLabel();
             
         }
     }

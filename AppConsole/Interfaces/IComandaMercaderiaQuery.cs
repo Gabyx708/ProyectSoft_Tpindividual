@@ -12,5 +12,7 @@ namespace Application.Interfaces
         List<ComandaMercaderia> GetListaComandaMercaderia();
 
         ComandaMercaderia GetComanda(int comandaMercaderia);
+
+        List<ComandaMercaderia> GetListaComandaMercaderiaBycomandaId(Guid comandaId);
     }
 }

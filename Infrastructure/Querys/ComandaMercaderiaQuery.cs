@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
 using Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -32,6 +33,11 @@ namespace Infrastructure.Querys
         public List<ComandaMercaderia> GetListaComandaMercaderia()
         {
             return context.comandaMercaderias.ToList<ComandaMercaderia>();
+        }
+
+        public List<ComandaMercaderia> GetListaComandaMercaderiaBycomandaId(Guid comandaid)
+        {
+            return context.comandaMercaderias.Where(cm => cm.ComandaId.Equals(comandaid)).ToList();
         }
     }
 }

@@ -42,6 +42,11 @@ namespace Application.Services
             return _query.GetListaComandaMercaderia();
         }
 
+        public List<ComandaMercaderia> getByComandaId(Guid comandaId)
+        {
+            return _query.GetListaComandaMercaderiaBycomandaId(comandaId);
+        }
+
         public ComandaMercaderia getByid(int comandaMercaderiaId)
         {
             return _query.GetComanda(comandaMercaderiaId);

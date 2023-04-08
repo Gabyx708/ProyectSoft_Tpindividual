@@ -17,7 +17,7 @@ namespace Infrastructure.Querys
             context = AppDbcontext.getInstance();
         }
 
-        public Comanda GetComanda(int comandaId)
+        public Comanda GetComanda(Guid comandaId)
         {
             var ComandaEncontrada = context.Find<Comanda>(comandaId);
             if (ComandaEncontrada != null)

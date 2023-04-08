@@ -43,7 +43,7 @@ namespace Application.Services
             return _query.GetListaComanda();
         }
 
-        public Comanda getByid(int comandaId)
+        public Comanda getByid(Guid comandaId)
         {
             return _query.GetComanda(comandaId);
         }

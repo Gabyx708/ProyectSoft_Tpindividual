@@ -11,6 +11,6 @@ namespace Application.Interfaces
     {
         List<Comanda> GetListaComanda();
 
-        Comanda GetComanda(int Formaentregaid);
+        Comanda GetComanda(Guid Formaentregaid);
     }
 }
