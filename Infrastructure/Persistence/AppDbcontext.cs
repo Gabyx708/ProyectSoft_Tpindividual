@@ -31,7 +31,7 @@ namespace Infrastructure.Persistence
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost;Database=DbTpindivual;Trusted_Connection=true;Encrypt=False;TrustServerCertificate=False");
+            optionsBuilder.UseSqlServer(@"Server=localhost;Database=DbRestaurant;Trusted_Connection=true;Encrypt=False;TrustServerCertificate=False");
 
         }
 
