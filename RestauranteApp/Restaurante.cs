@@ -11,7 +11,7 @@ namespace RestauranteApp
     internal class Restaurante
     {
         private static Restaurante instance = null;
-        private string name = "Los antegelitos";
+        private string name = "Restaurant Name";
         public static Restaurante getInstance()
         {
             if(instance == null)
