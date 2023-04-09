@@ -8,7 +8,7 @@
 
 ***
 
-![badged-os](/public/images/menuApp.png)
+![badged-os](../public/images/menuApp.png)
 
 Restaurante app es una aplicacion que simula el funcionamiento de un restaurante , permitiendo la toma de pedidos por parte de los clientes ,
 permitiendo elegir la forma de entrega el pedido y los platillos que contienen los mismos. Este proyecto es hecho unicamente con fines educativos para aprender el funcionamiento de EntityFramework Core y unificar conocimientos de bases de datos , metodologias de la programacion , algoritmos , etc.
@@ -54,15 +54,15 @@ permitiendo elegir la forma de entrega el pedido y los platillos que contienen l
     ```
 El output de la consola deberia de verse asi:
 
-![output-PM](/public/images/NuGetConsole.png)
+![output-PM](../public/images/NuGetConsole.png)
 
 -Paso 3: A continuacion ejecute el proyecto RestauranteApp desde la barra superior en Visual Studio como se muestra en la imagen
 
-![execute-screen](/public/images/Execute.png)
+![execute-screen](../public/images/Execute.png)
 
 Si todo sale bien la aplicacion deberia comenzar a funcionar y se manifestara como una consola en la pantalla!!
 
-![desktop](/public/images/General.png)
+![desktop](../public/images/General.png)
 
 
 ***
