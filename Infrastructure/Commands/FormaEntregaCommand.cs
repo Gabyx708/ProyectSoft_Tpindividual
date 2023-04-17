@@ -18,22 +18,22 @@ namespace Infrastructure.Commands
             context = AppDbcontext.getInstance();
         }
 
-        public  void InsertFormaEntrega(FormaEntrega formaEntrega)
+        public  void InsertFormaEntrega(FormaEntrega FormaEntrega)
         {
-            context.Add(formaEntrega);
+            context.Add(FormaEntrega);
             context.SaveChanges();
         }
 
-        public  void RemoveFormaEntrega(int formaEntregaid)
+        public  void RemoveFormaEntrega(int FormaEntregaId)
         {
-            FormaEntrega FormaEntregaEliminar = context.FormaEntregas.Single(fe => fe.FormaEntregaId == formaEntregaid);
+            FormaEntrega FormaEntregaEliminar = context.FormaEntregas.Single(fe => fe.FormaEntregaId == FormaEntregaId);
             context.Remove<FormaEntrega>(FormaEntregaEliminar);
             context.SaveChanges();
         }
 
-        public void UpdateFormaEntrega(int formaentregaid)
+        public void UpdateFormaEntrega(int FormaEntregaId)
         {
-            FormaEntrega FormaEntregaUpdate = context.FormaEntregas.Single(fe => fe.FormaEntregaId == formaentregaid);
+            FormaEntrega FormaEntregaUpdate = context.FormaEntregas.Single(fe => fe.FormaEntregaId == FormaEntregaId);
             context.Update<FormaEntrega>(FormaEntregaUpdate);
             context.SaveChanges();
         }

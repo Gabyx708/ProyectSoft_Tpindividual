@@ -3530,11 +3530,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\1_C_2023_UNI\\Proyect_soft\\TPindividual\\RestauranteApp\\RestauranteApp.csproj",
+      "projectUniqueName": "C:\\Users\\Administrador\\Downloads\\TP1-ORM-Coria_Gabriel\\RestauranteApp\\RestauranteApp.csproj",
       "projectName": "RestauranteApp",
-      "projectPath": "D:\\1_C_2023_UNI\\Proyect_soft\\TPindividual\\RestauranteApp\\RestauranteApp.csproj",
+      "projectPath": "C:\\Users\\Administrador\\Downloads\\TP1-ORM-Coria_Gabriel\\RestauranteApp\\RestauranteApp.csproj",
       "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "D:\\1_C_2023_UNI\\Proyect_soft\\TPindividual\\RestauranteApp\\obj\\",
+      "outputPath": "C:\\Users\\Administrador\\Downloads\\TP1-ORM-Coria_Gabriel\\RestauranteApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3551,8 +3551,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\1_C_2023_UNI\\Proyect_soft\\TPindividual\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\1_C_2023_UNI\\Proyect_soft\\TPindividual\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\Administrador\\Downloads\\TP1-ORM-Coria_Gabriel\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\Downloads\\TP1-ORM-Coria_Gabriel\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -3590,7 +3590,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

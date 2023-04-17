@@ -27,11 +27,11 @@ namespace RestauranteApp.ResatauranteFunctions
                 precioTotal = mercaderia.Precio + precioTotal;
             }
 
-            Comanda nuevaComanda = service.createComanda(formaDeEntrega,precioTotal,fecha);
+            Comanda nuevaComanda = service.CreateComanda(formaDeEntrega,precioTotal,fecha);
 
             foreach (Mercaderia mercaderia in platillos)
             {
-                serviceComandaMercaderia.createComandaMercaderia(mercaderia.MercaderiaId, nuevaComanda.ComandaId);
+                serviceComandaMercaderia.CreateComandaMercaderia(mercaderia.MercaderiaId, nuevaComanda.ComandaId);
             }
 
             notificarComanda(nuevaComanda);
@@ -48,7 +48,7 @@ namespace RestauranteApp.ResatauranteFunctions
 
             while (platilloElegido != 0)
             {
-                listaDePlatillos.Add(mercaderias.getById(platilloElegido));
+                listaDePlatillos.Add(mercaderias.GetById(platilloElegido));
                 Console.Write("ingresa el codigo del platillo: ");
                 platilloElegido = int.Parse(Console.ReadLine());
                 

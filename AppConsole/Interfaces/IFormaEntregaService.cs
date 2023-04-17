@@ -10,10 +10,10 @@ namespace Application.Interfaces
     public interface IFormaEntregaService
     { 
         //el service debe tener los metodos de CRUD
-        FormaEntrega createFormaentrega(string Descripcion);
-        void UpdateFormaentrega(int FormaEntregaid);
-        void deleteFormaentrega(int FormaEntregaid);
-        List<FormaEntrega> getAll();
-        FormaEntrega getByid(int FormaEntregaid);
+        FormaEntrega CreateFormaEntrega(string Descripcion);
+        void UpdateFormaEntrega(int FormaEntregaId);
+        void DeleteFormaEntrega(int FormaEntregaId);
+        List<FormaEntrega> GetAll();
+        FormaEntrega GetById(int FormaEntregaId);
     }
 }

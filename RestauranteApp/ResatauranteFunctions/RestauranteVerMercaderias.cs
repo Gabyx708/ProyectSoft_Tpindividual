@@ -18,7 +18,7 @@ namespace RestauranteApp.ResatauranteFunctions
 
         public void listarMercaderia()
         {
-            List<Mercaderia> listaMercaderia = service.getAll();
+            List<Mercaderia> listaMercaderia = service.GetAll();
 
             foreach (Mercaderia mercaderia in listaMercaderia)
             {
@@ -34,7 +34,7 @@ namespace RestauranteApp.ResatauranteFunctions
 
         public void listaMercaderiaSimplificada()
         {
-            List<Mercaderia> listaMercaderia = service.getAll();
+            List<Mercaderia> listaMercaderia = service.GetAll();
 
             foreach (Mercaderia mercaderia in listaMercaderia)
             {

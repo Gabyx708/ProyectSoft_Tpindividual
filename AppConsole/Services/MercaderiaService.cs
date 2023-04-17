@@ -13,46 +13,46 @@ namespace Application.Services
         private readonly IMercaderiaCommand _command;
         private readonly IMercaderiaQuery _query;
 
-        public MercaderiaService(IMercaderiaCommand command, IMercaderiaQuery query)
+        public MercaderiaService(IMercaderiaCommand Command, IMercaderiaQuery Query)
         {
-            _command = command;
-            _query = query;
+            _command = Command;
+            _query = Query;
         }
 
-        public Mercaderia createMercaderia(int mercaderiaId, string nombre, int tipomercaderiaId, string ingredientes, string preparacion, string imagen,int precio)
+        public Mercaderia CreateMercaderia(int MercaderiaId, string Nombre, int TipoMercaderiaId, string Ingredientes, string Preparacion, string Imagen,int Precio)
         {
-            var mercaderia = new Mercaderia
+            var Mercaderia = new Mercaderia
             {
-                MercaderiaId = mercaderiaId,
-                Nombre = nombre,
-                TipoMercaderiaId = tipomercaderiaId,
-                Preparacion = preparacion,
-                Imagen = imagen,
-                Precio = precio
+                MercaderiaId =  MercaderiaId,
+                Nombre = Nombre,
+                TipoMercaderiaId = TipoMercaderiaId,
+                Preparacion = Preparacion,
+                Imagen = Imagen,
+                Precio = Precio
             };
 
-            _command.insertMercaderia(mercaderia);
-            return mercaderia;
+            _command.InsertMercaderia(Mercaderia);
+            return Mercaderia;
         }
 
-        public void deleteMercaderia(int mercaderiaId)
+        public void DeleteMercaderia(int MercaderiaId)
         {
-            _command.removeMercaderia(mercaderiaId);
+            _command.RemoveMercaderia(MercaderiaId);
         }
 
-        public List<Mercaderia> getAll()
+        public List<Mercaderia> GetAll()
         {
             return _query.GetListaMercaderia();
         }
 
-        public Mercaderia getById(int mercaderiaId)
+        public Mercaderia GetById(int MercaderiaId)
         {
-            return _query.GetMercaderia(mercaderiaId);
+            return _query.GetMercaderia(MercaderiaId);
         }
 
-        public void updateMercaderia(int mercaderiaId)
+        public void UpdateMercaderia(int MercaderiaId)
         {
-            _command.updateMercaderia(mercaderiaId);
+            _command.UpdateMercaderia(MercaderiaId);
         }
     }
 }

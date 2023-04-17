@@ -17,22 +17,22 @@ namespace Infrastructure.Commands
         {
             context = AppDbcontext.getInstance();
         }
-        public void insertComanda(Comanda nuevaComanda)
+        public void InsertComanda(Comanda NuevaComanda)
         {
-            context.Add(nuevaComanda);
+            context.Add(NuevaComanda);
             context.SaveChanges();
         }
 
-        public void removeComanda(int comandaId)
+        public void RemoveComanda(int ComandaId)
         {
-            Comanda ComandaaEliminar = context.Comandas.Single(c => c.ComandaId.Equals(comandaId));
+            Comanda ComandaaEliminar = context.Comandas.Single(c => c.ComandaId.Equals(ComandaId));
             context.Remove<Comanda>(ComandaaEliminar);
             context.SaveChanges();
         }
 
-        public void updateComanda(int comandaId)
+        public void UpdateComanda(int ComandaId)
         {
-            Comanda ComandaaEditar = context.Comandas.Single(c => c.ComandaId.Equals(comandaId));
+            Comanda ComandaaEditar = context.Comandas.Single(c => c.ComandaId.Equals(ComandaId));
             context.Update(ComandaaEditar);
             context.SaveChanges();
         }

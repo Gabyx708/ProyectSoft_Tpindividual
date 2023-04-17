@@ -9,10 +9,10 @@ namespace Application.Interfaces
 {
     public interface IComandaService
     {
-        Comanda createComanda(FormaEntrega comandaFormaEntrega, int precioTotal, DateTime Fecha);
-        void updateComanda(int comandaId);
-        void deleteComanda(int comandaId);
-        List<Comanda> getAll();
-        Comanda getByid(Guid comandaId);
+        Comanda CreateComanda(FormaEntrega ComandaFormaEntrega, int PrecioTotal, DateTime Fecha);
+        void UpdateComanda(int ComandaId);
+        void DeleteComanda(int ComandaId);
+        List<Comanda> GetAll();
+        Comanda GetById(Guid ComandaId);
     }
 }

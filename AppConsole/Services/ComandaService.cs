@@ -13,44 +13,44 @@ namespace Application.Services
         private readonly IComandaCommand _command;
         private readonly IComandaQuery _query;
 
-        public ComandaService(IComandaCommand command, IComandaQuery query)
+        public ComandaService(IComandaCommand Command, IComandaQuery Query)
         {
-            _command = command;
-            _query = query;
+            _command = Command;
+            _query = Query;
         }
 
-        public Comanda createComanda(FormaEntrega comandaFormaEntrega, int precioTotal, DateTime Fecha)
+        public Comanda CreateComanda(FormaEntrega ComandaFormaEntrega, int PrecioTotal, DateTime Fecha)
         {
-            var comanda = new Comanda
+            var Comanda = new Comanda
             {
-                PrecioTotal = precioTotal,
+                PrecioTotal = PrecioTotal,
                 Fecha = Fecha,
-                FormaEntrega = comandaFormaEntrega,
-                FormaEntregaId = comandaFormaEntrega.FormaEntregaId
+                FormaEntrega = ComandaFormaEntrega,
+                FormaEntregaId = ComandaFormaEntrega.FormaEntregaId
             };
 
-            _command.insertComanda(comanda);
-            return comanda;
+            _command.InsertComanda(Comanda);
+            return Comanda;
         }
 
-        public void deleteComanda(int comandaId)
+        public void DeleteComanda(int ComandaId)
         {
-            _command.removeComanda(comandaId);
+            _command.RemoveComanda(ComandaId);
         }
 
-        public List<Comanda> getAll()
+        public List<Comanda> GetAll()
         {
             return _query.GetListaComanda();
         }
 
-        public Comanda getByid(Guid comandaId)
+        public Comanda GetById(Guid ComandaId)
         {
-            return _query.GetComanda(comandaId);
+            return _query.GetComanda(ComandaId);
         }
 
-        public void updateComanda(int comandaId)
+        public void UpdateComanda(int ComandaId)
         {
-            _command.updateComanda(comandaId);
+            _command.UpdateComanda(ComandaId);
         }
     }
 }

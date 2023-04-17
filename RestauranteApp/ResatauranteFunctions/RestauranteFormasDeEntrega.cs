@@ -17,12 +17,12 @@ namespace RestauranteApp.ResatauranteFunctions
 
         public List<FormaEntrega> formaEntregas()
         {
-            return service.getAll();
+            return service.GetAll();
         }
 
         public FormaEntrega usarFormaEntrega(int id)
         {
-            return service.getByid(id);
+            return service.GetById(id);
         }
     }
 }

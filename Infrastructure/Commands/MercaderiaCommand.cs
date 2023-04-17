@@ -18,20 +18,20 @@ namespace Infrastructure.Commands
             context = AppDbcontext.getInstance();
         }
 
-        public void insertMercaderia(Mercaderia nuevaMercaderia)
+        public void InsertMercaderia(Mercaderia nuevaMercaderia)
         {
             context.Add(nuevaMercaderia);
             context.SaveChanges();
         }
 
-        public void removeMercaderia(int mercaderiaId)
+        public void RemoveMercaderia(int mercaderiaId)
         {
             Mercaderia mercaderiaEliminar = context.Mercaderias.Single(m => m.MercaderiaId == mercaderiaId);
             context.Remove<Mercaderia>(mercaderiaEliminar);
             context.SaveChanges();
         }
 
-        public void updateMercaderia(int mercaderiaId)
+        public void UpdateMercaderia(int mercaderiaId)
         {
             Mercaderia mercaderiaUpdate = context.Mercaderias.Single(m => m.MercaderiaId == mercaderiaId);
             context.Update<Mercaderia>(mercaderiaUpdate);

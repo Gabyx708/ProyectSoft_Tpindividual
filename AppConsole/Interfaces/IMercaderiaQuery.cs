@@ -10,6 +10,6 @@ namespace Application.Interfaces
     public interface IMercaderiaQuery
     {
         List<Mercaderia> GetListaMercaderia();
-        Mercaderia GetMercaderia(int mercaderiaId);
+        Mercaderia GetMercaderia(int MercaderiaId);
     }
 }

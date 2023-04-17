@@ -35,7 +35,7 @@ namespace Infrastructure.Querys
             return context.comandaMercaderias.ToList<ComandaMercaderia>();
         }
 
-        public List<ComandaMercaderia> GetListaComandaMercaderiaBycomandaId(Guid comandaid)
+        public List<ComandaMercaderia> GetListaComandaMercaderiaByComandaId(Guid comandaid)
         {
             return context.comandaMercaderias.Where(cm => cm.ComandaId.Equals(comandaid)).ToList();
         }
