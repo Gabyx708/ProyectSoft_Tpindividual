@@ -15,7 +15,7 @@ namespace Infrastructure.Querys
 
         public TipoMercaderiaQuery()
         {
-            context = AppDbcontext.getInstance();
+            context = AppDbcontext.GetInstance();
         }
 
         public List<TipoMercaderia> GetListaTipoMercaderia()
@@ -23,12 +23,12 @@ namespace Infrastructure.Querys
             return context.TipoMercaderias.ToList<TipoMercaderia>();
         }
 
-        public TipoMercaderia GetTipoMercaderia(int tipomercaderiaid)
+        public TipoMercaderia GetTipoMercaderia(int TipoMercaderiaId)
         {
-            var tipoMercaderiaEncontrada = context.Find<TipoMercaderia>(tipomercaderiaid);
-            if (tipoMercaderiaEncontrada != null)
+            var TipoMercaderiaEncontrada = context.Find<TipoMercaderia>(TipoMercaderiaId);
+            if (TipoMercaderiaEncontrada != null)
             {
-                return tipoMercaderiaEncontrada;
+                return TipoMercaderiaEncontrada;
             }
             return null;
         }

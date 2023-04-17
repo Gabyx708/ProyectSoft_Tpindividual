@@ -13,7 +13,7 @@ namespace Infrastructure.Persistence
     {   
 
         private static AppDbcontext instance = null;
-        public static AppDbcontext getInstance()
+        public static AppDbcontext GetInstance()
         {
             if (instance == null)
             {
@@ -24,7 +24,7 @@ namespace Infrastructure.Persistence
         }
 
         public DbSet<Comanda> Comandas { get; set; }
-        public DbSet<ComandaMercaderia> comandaMercaderias { get; set; }
+        public DbSet<ComandaMercaderia> ComandaMercaderias { get; set; }
         public DbSet<FormaEntrega> FormaEntregas { get; set; }
         public DbSet<Mercaderia> Mercaderias { get; set; }
         public DbSet<TipoMercaderia> TipoMercaderias { get; set; }
@@ -46,7 +46,7 @@ namespace Infrastructure.Persistence
                 entity.Property(e => e.Fecha).IsRequired();
 
                 entity.HasOne<FormaEntrega>(c => c.FormaEntrega)
-                       .WithMany(fe => fe.comandas)
+                       .WithMany(fe => fe.Comandas)
                        .HasForeignKey(c => c.FormaEntregaId);
             
             }
@@ -62,7 +62,7 @@ namespace Infrastructure.Persistence
                 entity.Property(e => e.Imagen).HasMaxLength(255).IsRequired();
 
                 entity.HasOne<TipoMercaderia>(m => m.TipoMercaderia)
-                       .WithMany(tp => tp.mercaderias)
+                       .WithMany(tp => tp.Mercaderias)
                        .HasForeignKey(m => m.TipoMercaderiaId);
             });
 

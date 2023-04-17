@@ -15,7 +15,7 @@ namespace Infrastructure.Commands
 
         public FormaEntregaCommand()
         {
-            context = AppDbcontext.getInstance();
+            context = AppDbcontext.GetInstance();
         }
 
         public  void InsertFormaEntrega(FormaEntrega FormaEntrega)

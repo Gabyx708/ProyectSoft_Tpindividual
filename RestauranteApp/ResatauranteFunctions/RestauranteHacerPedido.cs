@@ -17,19 +17,19 @@ namespace RestauranteApp.ResatauranteFunctions
         private IComandaService service = new ComandaService(new ComandaCommand(),new ComandaQuery());
         private IComandaMercaderiaService serviceComandaMercaderia = new ComandaMercaderiaService(new ComandaMercaderiaCommand(),new ComandaMercaderiaQuery());
 
-        private void crearPedido(List<Mercaderia>platillos,FormaEntrega formaDeEntrega)
+        private void crearPedido(List<Mercaderia>Platillos,FormaEntrega FormaDeEntrega)
         {
-            int precioTotal = 0;
-            DateTime fecha = DateTime.Now;
+            int PrecioTotal = 0;
+            DateTime Fecha = DateTime.Now;
 
-            foreach (Mercaderia mercaderia in platillos)
+            foreach (Mercaderia mercaderia in Platillos)
             {
-                precioTotal = mercaderia.Precio + precioTotal;
+                PrecioTotal = mercaderia.Precio + PrecioTotal;
             }
 
-            Comanda nuevaComanda = service.CreateComanda(formaDeEntrega,precioTotal,fecha);
+            Comanda nuevaComanda = service.CreateComanda(FormaDeEntrega,PrecioTotal,Fecha);
 
-            foreach (Mercaderia mercaderia in platillos)
+            foreach (Mercaderia mercaderia in Platillos)
             {
                 serviceComandaMercaderia.CreateComandaMercaderia(mercaderia.MercaderiaId, nuevaComanda.ComandaId);
             }
@@ -41,25 +41,25 @@ namespace RestauranteApp.ResatauranteFunctions
         {   
             Console.WriteLine("\n Elige los platillos del menu utilizando su Codigo (para finalizar escribe O): ");
             Console.Write("ingresa el codigo del platillo: ");
-            int platilloElegido = int.Parse(Console.ReadLine());
+            int PlatilloElegido = int.Parse(Console.ReadLine());
 
             var mercaderias = new MercaderiaService(new MercaderiaCommand(), new MercaderiaQuery());
             List<Mercaderia> listaDePlatillos = new List<Mercaderia>();
 
-            while (platilloElegido != 0)
+            while (PlatilloElegido != 0)
             {
-                listaDePlatillos.Add(mercaderias.GetById(platilloElegido));
+                listaDePlatillos.Add(mercaderias.GetById(PlatilloElegido));
                 Console.Write("ingresa el codigo del platillo: ");
-                platilloElegido = int.Parse(Console.ReadLine());
+                PlatilloElegido = int.Parse(Console.ReadLine());
                 
 
             }
 
             Console.WriteLine("\n A continuacion ingresa el codigo la forma en la que quieres que entreguemos tu pedido: ");
-            RestauranteFormasDeEntrega entregaPedido = new RestauranteFormasDeEntrega();
-            List<FormaEntrega> entregas = entregaPedido.formaEntregas();
+            RestauranteFormasDeEntrega EntregaPedido = new RestauranteFormasDeEntrega();
+            List<FormaEntrega> Entregas = EntregaPedido.FormaEntregas();
 
-            foreach (var entrega in entregas)
+            foreach (var entrega in Entregas)
             {
                 Console.WriteLine(entrega.FormaEntregaId + " - " + entrega.Descripcion);
             }
@@ -67,15 +67,15 @@ namespace RestauranteApp.ResatauranteFunctions
             Console.Write("ingresa el codigo del forma de entrega: ");
             int FormaEntregaElegida = int.Parse(Console.ReadLine());
 
-            crearPedido(listaDePlatillos, entregaPedido.usarFormaEntrega(FormaEntregaElegida));
+            crearPedido(listaDePlatillos, EntregaPedido.UsarFormaEntrega(FormaEntregaElegida));
         }
 
-        private void notificarComanda(Comanda nuevaComanda)
+        private void notificarComanda(Comanda NuevaComanda)
         {
             Console.WriteLine("\n!En hora buena , su pedido se ah generado con exito!");
             Console.WriteLine("*************************************************************************************");
-            Console.WriteLine("PEDIDO COD: " + nuevaComanda.ComandaId + " A PAGAR: U$D: $" + nuevaComanda.PrecioTotal);
-            Console.WriteLine("forma de entrega: "+nuevaComanda.FormaEntrega.Descripcion);
+            Console.WriteLine("PEDIDO COD: " + NuevaComanda.ComandaId + " A PAGAR: U$D: $" + NuevaComanda.PrecioTotal);
+            Console.WriteLine("forma de entrega: "+NuevaComanda.FormaEntrega.Descripcion);
             Console.WriteLine("*************************************************************************************\n");
         }
     }

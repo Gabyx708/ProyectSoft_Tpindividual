@@ -16,11 +16,11 @@ namespace RestauranteApp.ResatauranteFunctions
 
         private IMercaderiaService service = new MercaderiaService(new MercaderiaCommand(), new MercaderiaQuery());
 
-        public void listarMercaderia()
+        public void ListarMercaderia()
         {
-            List<Mercaderia> listaMercaderia = service.GetAll();
+            List<Mercaderia> ListaMercaderia = service.GetAll();
 
-            foreach (Mercaderia mercaderia in listaMercaderia)
+            foreach (Mercaderia mercaderia in ListaMercaderia)
             {
                 Console.WriteLine("************************");
                 Console.WriteLine("Codigo: "+mercaderia.MercaderiaId);
@@ -32,11 +32,11 @@ namespace RestauranteApp.ResatauranteFunctions
             }
         }
 
-        public void listaMercaderiaSimplificada()
+        public void ListaMercaderiaSimplificada()
         {
-            List<Mercaderia> listaMercaderia = service.GetAll();
+            List<Mercaderia> ListaMercaderia = service.GetAll();
 
-            foreach (Mercaderia mercaderia in listaMercaderia)
+            foreach (Mercaderia mercaderia in ListaMercaderia)
             {
                 Console.WriteLine("| Codigo: "+mercaderia.MercaderiaId+"| nombre: "+mercaderia.Nombre+"| precio U$D: "+mercaderia.Precio+"|");
             }

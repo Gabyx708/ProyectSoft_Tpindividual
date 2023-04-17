@@ -12,7 +12,7 @@ namespace RestauranteApp
     {
         private static Restaurante instance = null;
         private string name = "Restaurant Name";
-        public static Restaurante getInstance()
+        public static Restaurante GetInstance()
         {
             if(instance == null)
             {
@@ -26,29 +26,29 @@ namespace RestauranteApp
 
         public void VerMercaderias()
         {
-            new RestauranteVerMercaderias().listarMercaderia();
+            new RestauranteVerMercaderias().ListarMercaderia();
         }
 
-        public void hacerPedido()
+        public void HacerPedido()
         {
-            new RestauranteVerMercaderias().listaMercaderiaSimplificada();
+            new RestauranteVerMercaderias().ListaMercaderiaSimplificada();
             new RestauranteHacerPedido().hacerUnPedido();
         }
 
-        public void consultarPedido()
+        public void ConsultarPedido()
         {
-            new RestauranVerPedidos().consultarPedido();
+            new RestauranVerPedidos().ConsultarPedido();
         }
 
-        public void verPedidos()
+        public void VerPedidos()
         {
-            new RestauranVerPedidos().listarPedidos();
+            new RestauranVerPedidos().ListarPedidos();
         }
 
 
-        private List<FormaEntrega> conseguirFormasDeEntrega()
+        private List<FormaEntrega> ConseguirFormasDeEntrega()
         {
-            return new RestauranteFormasDeEntrega().formaEntregas();
+            return new RestauranteFormasDeEntrega().FormaEntregas();
         }
 
     }

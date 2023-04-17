@@ -14,12 +14,12 @@ namespace Infrastructure.Querys
         private readonly AppDbcontext context;
         public ComandaQuery()
         {
-            context = AppDbcontext.getInstance();
+            context = AppDbcontext.GetInstance();
         }
 
-        public Comanda GetComanda(Guid comandaId)
+        public Comanda GetComanda(Guid ComandaId)
         {
-            var ComandaEncontrada = context.Find<Comanda>(comandaId);
+            var ComandaEncontrada = context.Find<Comanda>(ComandaId);
             if (ComandaEncontrada != null)
             {
                 return ComandaEncontrada;

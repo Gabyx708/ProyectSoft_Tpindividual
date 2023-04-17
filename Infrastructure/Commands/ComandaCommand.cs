@@ -15,7 +15,7 @@ namespace Infrastructure.Commands
         
         public ComandaCommand()
         {
-            context = AppDbcontext.getInstance();
+            context = AppDbcontext.GetInstance();
         }
         public void InsertComanda(Comanda NuevaComanda)
         {

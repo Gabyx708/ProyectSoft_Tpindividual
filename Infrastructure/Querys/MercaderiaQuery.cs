@@ -16,7 +16,7 @@ namespace Infrastructure.Querys
 
         public MercaderiaQuery()
         {
-            context = AppDbcontext.getInstance();
+            context = AppDbcontext.GetInstance();
         }
 
         public List<Mercaderia> GetListaMercaderia()
@@ -24,9 +24,9 @@ namespace Infrastructure.Querys
             return context.Mercaderias.ToList<Mercaderia>();
         }
 
-        public Mercaderia GetMercaderia(int mercaderiaId)
+        public Mercaderia GetMercaderia(int MercaderiaId)
         {
-            var MercaderiaEncontrada = context.Find<Mercaderia>(mercaderiaId);
+            var MercaderiaEncontrada = context.Find<Mercaderia>(MercaderiaId);
             if (MercaderiaEncontrada != null)
             {
                 return MercaderiaEncontrada;

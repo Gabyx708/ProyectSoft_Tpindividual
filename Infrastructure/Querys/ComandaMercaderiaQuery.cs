@@ -17,12 +17,12 @@ namespace Infrastructure.Querys
 
         public ComandaMercaderiaQuery()
         {
-            context = AppDbcontext.getInstance();
+            context = AppDbcontext.GetInstance();
         }
 
-        public ComandaMercaderia GetComanda(int comandaMercaderiaid)
+        public ComandaMercaderia GetComanda(int ComandaMercaderiaId)
         {
-            var ComandaMercaderiaEncontrada = context.Find<ComandaMercaderia>(comandaMercaderiaid);
+            var ComandaMercaderiaEncontrada = context.Find<ComandaMercaderia>(ComandaMercaderiaId);
             if (ComandaMercaderiaEncontrada != null)
             {
                 return ComandaMercaderiaEncontrada;
@@ -32,12 +32,12 @@ namespace Infrastructure.Querys
 
         public List<ComandaMercaderia> GetListaComandaMercaderia()
         {
-            return context.comandaMercaderias.ToList<ComandaMercaderia>();
+            return context.ComandaMercaderias.ToList<ComandaMercaderia>();
         }
 
-        public List<ComandaMercaderia> GetListaComandaMercaderiaByComandaId(Guid comandaid)
+        public List<ComandaMercaderia> GetListaComandaMercaderiaByComandaId(Guid ComandaId)
         {
-            return context.comandaMercaderias.Where(cm => cm.ComandaId.Equals(comandaid)).ToList();
+            return context.ComandaMercaderias.Where(cm => cm.ComandaId.Equals(ComandaId)).ToList();
         }
     }
 }

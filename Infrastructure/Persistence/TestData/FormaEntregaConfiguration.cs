@@ -17,19 +17,19 @@ namespace Infrastructure.Persistence.TestData
                (
                 new FormaEntrega
                 {   
-                    FormaEntregaId= 10,
+                    FormaEntregaId= 1,
                     Descripcion = "Salon"
                 },
 
                 new FormaEntrega
                 {   
-                    FormaEntregaId = 20,
+                    FormaEntregaId = 2,
                     Descripcion="Delivery"
                 },
 
                 new FormaEntrega
                 {   
-                    FormaEntregaId= 30,
+                    FormaEntregaId= 3,
                     Descripcion="Pedidos Ya"
                 }
 

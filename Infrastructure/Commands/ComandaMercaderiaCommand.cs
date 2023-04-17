@@ -15,7 +15,7 @@ namespace Infrastructure.Commands
 
         public ComandaMercaderiaCommand()
         {
-            context = AppDbcontext.getInstance();
+            context = AppDbcontext.GetInstance();
         }
 
         public void InsertComandaMercaderia(ComandaMercaderia NuevoComandaMercaderia)
@@ -26,14 +26,14 @@ namespace Infrastructure.Commands
 
         public void RemoveComandaMercaderia(int ComandaMercaderiaId)
         {
-            ComandaMercaderia ComandaMercaderiaEliminar = context.comandaMercaderias.Single(cm => cm.ComandaMercaderiaId == ComandaMercaderiaId);
+            ComandaMercaderia ComandaMercaderiaEliminar = context.ComandaMercaderias.Single(cm => cm.ComandaMercaderiaId == ComandaMercaderiaId);
             context.Remove<ComandaMercaderia>(ComandaMercaderiaEliminar);
             context.SaveChanges();
         }
 
         public void UpdateComandaMercaderia(int ComandaMercaderiaId)
         {
-            ComandaMercaderia ComandaMercaderiaUpdate = context.comandaMercaderias.Single(cm => cm.ComandaMercaderiaId == ComandaMercaderiaId);
+            ComandaMercaderia ComandaMercaderiaUpdate = context.ComandaMercaderias.Single(cm => cm.ComandaMercaderiaId == ComandaMercaderiaId);
             context.Update<ComandaMercaderia>(ComandaMercaderiaUpdate);
             context.SaveChanges();
         }
