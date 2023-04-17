@@ -9,10 +9,10 @@ namespace Application.Interfaces
 {
     public interface IComandaMercaderiaCommand
     {
-        void insertComandaMercaderia(ComandaMercaderia nuevoComandaMercaderia);
+        void InsertComandaMercaderia(ComandaMercaderia NuevoComandaMercaderia);
 
-        void removeComandaMercaderia(int comandaMercaderiaId);
+        void RemoveComandaMercaderia(int ComandaMercaderiaId);
 
-        void updateComandaMercaderia(int comandaMercaderiaId);
+        void UpdateComandaMercaderia(int ComandaMercaderiaId);
     }
 }

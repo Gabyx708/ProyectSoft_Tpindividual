@@ -11,6 +11,6 @@ namespace Application.Interfaces
     {
         List<TipoMercaderia> GetListaTipoMercaderia();
 
-        TipoMercaderia GetTipoMercaderia(int tipomercaderiaid);
+        TipoMercaderia GetTipoMercaderia(int TipoMercaderiaId);
     }
 }

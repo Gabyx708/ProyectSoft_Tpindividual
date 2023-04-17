@@ -15,14 +15,14 @@ namespace RestauranteApp.ResatauranteFunctions
     {
         private IFormaEntregaService service = new FormaEntregaServices(new FormaEntregaCommand(),new FormaEntregaQuery());
 
-        public List<FormaEntrega> formaEntregas()
+        public List<FormaEntrega> FormaEntregas()
         {
-            return service.getAll();
+            return service.GetAll();
         }
 
-        public FormaEntrega usarFormaEntrega(int id)
+        public FormaEntrega UsarFormaEntrega(int Id)
         {
-            return service.getByid(id);
+            return service.GetById(Id);
         }
     }
 }

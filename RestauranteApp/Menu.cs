@@ -13,16 +13,16 @@ namespace RestauranteApp
 {
     internal class Menu
     {
-        private Restaurante restauran = Restaurante.getInstance();
+        private Restaurante restauran = Restaurante.GetInstance();
 
-        public void handle()
+        public void Handle()
         {
             Console.WriteLine("***************************************");
             Console.WriteLine("****** BINEVENID@ A " + restauran.Name + " ***");
             Console.WriteLine("***************************************");
         }
 
-        public void optionsLabel()
+        public void OptionsLabel()
         {
             Console.WriteLine("Elige una opcion para continuar: ");
             Console.WriteLine("1 - Realizar un pedido");
@@ -34,17 +34,17 @@ namespace RestauranteApp
             Console.Write("Ingresa tu opcion a continuacion: ");
             int opcionElegida = int.Parse(Console.ReadLine());
 
-            elegirOpcion(opcionElegida);
+            ElegirOpcion(opcionElegida);
         }
 
-        private void elegirOpcion(int opcion)
+        private void ElegirOpcion(int opcion)
         {
             switch(opcion)
             {
-                case 1: restauran.hacerPedido(); optionsLabel(); break; //mejorar metodo
-                    case 2: restauran.verPedidos(); optionsLabel(); break;
-                        case 3: restauran.VerMercaderias(); optionsLabel(); break;
-                            case 4: restauran.consultarPedido(); optionsLabel(); break;
+                case 1: restauran.HacerPedido(); OptionsLabel(); break; //mejorar metodo
+                    case 2: restauran.VerPedidos(); OptionsLabel(); break;
+                        case 3: restauran.VerMercaderias(); OptionsLabel(); break;
+                            case 4: restauran.ConsultarPedido(); OptionsLabel(); break;
                                 case 5: Console.Clear(); Console.WriteLine("Esperamos verte pronto!! "); break;
             }
         }

@@ -18,53 +18,53 @@ namespace RestauranteApp.ResatauranteFunctions
         private IFormaEntregaService serviceEntrega = new FormaEntregaServices(new FormaEntregaCommand(),new FormaEntregaQuery());
         private IComandaMercaderiaService serviceComandaMercaderia = new ComandaMercaderiaService(new ComandaMercaderiaCommand(),new ComandaMercaderiaQuery());
 
-        public void consultarPedido()
+        public void ConsultarPedido()
         {
             Console.Write("\n ingresa el CODIGO DEL PEDIDO: ");
-            string codigo = Console.ReadLine();
+            string Codigo = Console.ReadLine();
             
-            Comanda comanda =  service.getByid(Guid.Parse(codigo));
-            List<ComandaMercaderia> union = serviceComandaMercaderia.getByComandaId(comanda.ComandaId);
+            Comanda Comanda =  service.GetById(Guid.Parse(Codigo));
+            List<ComandaMercaderia> Union = serviceComandaMercaderia.GetByComandaId(Comanda.ComandaId);
 
             Console.WriteLine("\n ***PEDIDO CONSULTADO***");
-            Console.WriteLine("| COD: "+comanda.ComandaId+" fecha: "+comanda.Fecha+" |");
+            Console.WriteLine("| COD: "+Comanda.ComandaId+" fecha: "+Comanda.Fecha+" |");
             Console.WriteLine("| ----------- DETALLE DEL PEDIDO  ------------------- |");
            
             
-            foreach (var plato in union)
+            foreach (var plato in Union)
             {
-               Mercaderia itemDePedido =  serviceMercaderia.getById(plato.MercaderiaId);
+               Mercaderia itemDePedido =  serviceMercaderia.GetById(plato.MercaderiaId);
 
                 Console.WriteLine("Descripcion: "+itemDePedido.Nombre+"------ $"+itemDePedido.Precio);
             }
 
-            Console.WriteLine("\n| entrega: "+serviceEntrega.getByid(comanda.FormaEntregaId).Descripcion+" TOTAL U$D: $"+comanda.PrecioTotal+"|");
+            Console.WriteLine("\n| entrega: "+serviceEntrega.GetById(Comanda.FormaEntregaId).Descripcion+" TOTAL U$D: $"+Comanda.PrecioTotal+"|");
             Console.WriteLine(" ");
         }
 
-        public void listarPedidos()
+        public void ListarPedidos()
         {
-            List<Comanda> pedidos = service.getAll();
+            List<Comanda> Pedidos = service.GetAll();
 
-            foreach (var item in pedidos) 
+            foreach (var item in Pedidos) 
             {
-                Comanda comanda = service.getByid(item.ComandaId);
-                List<ComandaMercaderia> union = serviceComandaMercaderia.getByComandaId(comanda.ComandaId);
+                Comanda Comanda = service.GetById(item.ComandaId);
+                List<ComandaMercaderia> Union = serviceComandaMercaderia.GetByComandaId(Comanda.ComandaId);
 
 
                 Console.WriteLine("\n");
-                Console.WriteLine("| COD: " + comanda.ComandaId + " fecha: " + comanda.Fecha + " |");
+                Console.WriteLine("| COD: " + Comanda.ComandaId + " fecha: " + Comanda.Fecha + " |");
                 Console.WriteLine("| ----------- DETALLE DEL PEDIDO  ------------------- |");
 
 
-                foreach (var plato in union)
+                foreach (var plato in Union)
                 {
-                    Mercaderia itemDePedido = serviceMercaderia.getById(plato.MercaderiaId);
+                    Mercaderia itemDePedido = serviceMercaderia.GetById(plato.MercaderiaId);
 
                     Console.WriteLine("Descripcion: " + itemDePedido.Nombre + "------ $" + itemDePedido.Precio);
                 }
 
-                Console.WriteLine("\n| entrega: " + serviceEntrega.getByid(comanda.FormaEntregaId).Descripcion + " TOTAL U$D: $" + comanda.PrecioTotal + "|");
+                Console.WriteLine("\n| entrega: " + serviceEntrega.GetById(Comanda.FormaEntregaId).Descripcion + " TOTAL U$D: $" + Comanda.PrecioTotal + "|");
                 Console.WriteLine("\n ");
             }
         }

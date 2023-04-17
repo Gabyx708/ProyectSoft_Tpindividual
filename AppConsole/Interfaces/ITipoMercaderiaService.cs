@@ -9,14 +9,14 @@ namespace Application.Interfaces
 {
     public interface ITipoMercaderiaService
     {
-        TipoMercaderia createTipoMercaderia(int tipoMercaderiaid, string Descripcion);
+        TipoMercaderia CreateTipoMercaderia(int TipoMercaderiaid, string Descripcion);
 
-        void updateTipoMercaderia(int tipomercaderiaId);
+        void UpdateTipoMercaderia(int TipomercaderiaId);
 
-        void delteTipoMercaderia(int tipomercaderiaId);
+        void DeleteTipoMercaderia(int TipomercaderiaId);
 
-        List<TipoMercaderia> getAll();
+        List<TipoMercaderia> GetAll();
 
-        TipoMercaderia getByid(int tipomercaderiaId);
+        TipoMercaderia GetById(int TipomercaderiaId);
     }
 }

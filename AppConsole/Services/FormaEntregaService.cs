@@ -13,42 +13,42 @@ namespace Application.Services
         private readonly IFormaEntregaCommand _command;
         private readonly IFormaEntregaQuery _query;
 
-        public FormaEntregaServices(IFormaEntregaCommand command, IFormaEntregaQuery query)
+        public FormaEntregaServices(IFormaEntregaCommand Command, IFormaEntregaQuery Query)
         {
-            _command = command;
-            _query = query;
+            _command = Command;
+            _query = Query;
         }
 
-        public FormaEntrega createFormaentrega(string Descripcion)
+        public FormaEntrega CreateFormaEntrega(string Descripcion)
         {
-            var formaEntrega = new FormaEntrega
+            var FormaEntrega = new FormaEntrega
             {
                 Descripcion = Descripcion
             };
 
 
-            _command.InsertFormaEntrega(formaEntrega);
-            return formaEntrega;
+            _command.InsertFormaEntrega(FormaEntrega);
+            return FormaEntrega;
         }
 
-        public void deleteFormaentrega(int FormaEntregaid)
+        public void DeleteFormaEntrega(int FormaEntregaId)
         {
-            _command.RemoveFormaEntrega(FormaEntregaid);
+            _command.RemoveFormaEntrega(FormaEntregaId);
         }
 
-        public List<FormaEntrega> getAll()
+        public List<FormaEntrega> GetAll()
         {
             return _query.GetListFormaEntrega();
         }
 
-        public FormaEntrega getByid(int FormaEntregaid)
+        public FormaEntrega GetById(int FormaEntregaId)
         {
-            return _query.GetFormaEntrega(FormaEntregaid);
+            return _query.GetFormaEntrega(FormaEntregaId);
         }
 
-        public void UpdateFormaentrega(int FormaEntregaid)
+        public void UpdateFormaEntrega(int FormaEntregaId)
         {
-             _command.UpdateFormaEntrega(FormaEntregaid);
+             _command.UpdateFormaEntrega(FormaEntregaId);
         }
     }
 }

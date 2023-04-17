@@ -19,36 +19,36 @@ namespace Application.Services
             _query = query;
         }
 
-        public TipoMercaderia createTipoMercaderia(int tipomercaderiaId,string Descripcion)
+        public TipoMercaderia CreateTipoMercaderia(int TipoMercaderiaId,string Descripcion)
         {
-            var tipoMercaderia = new TipoMercaderia
+            var TipoMercaderia = new TipoMercaderia
             {
-                TipoMercaderiaId = tipomercaderiaId,
+                TipoMercaderiaId = TipoMercaderiaId,
                 Descripcion = Descripcion
             };
 
-            _command.insertTipoMercaderia(tipoMercaderia);
-            return tipoMercaderia;
+            _command.InsertTipoMercaderia(TipoMercaderia);
+            return TipoMercaderia;
         }
 
-        public void delteTipoMercaderia(int tipomercaderiaId)
+        public void DeleteTipoMercaderia(int TipoMercaderiaId)
         {
-            _command.removeTipoMercaderia(tipomercaderiaId);
+            _command.RemoveTipoMercaderia(TipoMercaderiaId);
         }
 
-        public List<TipoMercaderia> getAll()
+        public List<TipoMercaderia> GetAll()
         {
             return _query.GetListaTipoMercaderia();
         }
 
-        public TipoMercaderia getByid(int tipomercaderiaId)
+        public TipoMercaderia GetById(int TipoMercaderiaId)
         {
-            return _query.GetTipoMercaderia(tipomercaderiaId);
+            return _query.GetTipoMercaderia(TipoMercaderiaId);
         }
 
-        public void updateTipoMercaderia(int tipomercaderiaId)
+        public void UpdateTipoMercaderia(int TipoMercaderiaId)
         {
-            _command.updateTipoMercaderia(tipomercaderiaId);
+            _command.UpdateTipoMercaderia(TipoMercaderiaId);
         }
     }
 }

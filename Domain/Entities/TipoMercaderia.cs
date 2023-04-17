@@ -11,6 +11,6 @@ namespace Domain.Entities
         public int TipoMercaderiaId { get; set; }
         public string Descripcion { get; set; }
 
-        public IList<Mercaderia> mercaderias { get; set; }
+        public IList<Mercaderia> Mercaderias { get; set; }
     }
 }

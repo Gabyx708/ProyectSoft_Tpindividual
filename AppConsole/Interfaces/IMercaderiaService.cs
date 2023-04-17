@@ -10,14 +10,14 @@ namespace Application.Interfaces
 {
     public interface IMercaderiaService
     {
-        Mercaderia createMercaderia(int mercaderiaId,string nombre,int tipomercaderiaId,string ingredientes,string preparacion,string imagen,int precio);
+        Mercaderia CreateMercaderia(int MercaderiaId,string Nombre,int TipoMercaderiaId,string Ingredientes,string Preparacion,string Imagen,int Precio);
 
-        void updateMercaderia(int mercaderiaId);
+        void UpdateMercaderia(int MercaderiaId);
 
-        void deleteMercaderia(int mercaderiaId);
+        void DeleteMercaderia(int MercaderiaId);
 
-        List<Mercaderia> getAll();
+        List<Mercaderia> GetAll();
 
-        Mercaderia getById(int mercaderiaId);
+        Mercaderia GetById(int MercaderiaId);
     }
 }

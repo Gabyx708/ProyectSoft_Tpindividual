@@ -15,12 +15,12 @@ namespace Infrastructure.Querys
 
         public FormaEntregaQuery()
         {
-            context = AppDbcontext.getInstance();
+            context = AppDbcontext.GetInstance();
         }
 
-        public FormaEntrega GetFormaEntrega(int Formaentregaid)
+        public FormaEntrega GetFormaEntrega(int FormaEntregaId)
         {
-           var FormaEntregaEncontrada = context.Find<FormaEntrega>(Formaentregaid);
+           var FormaEntregaEncontrada = context.Find<FormaEntrega>(FormaEntregaId);
             if(FormaEntregaEncontrada != null)
             {
                 return FormaEntregaEncontrada;

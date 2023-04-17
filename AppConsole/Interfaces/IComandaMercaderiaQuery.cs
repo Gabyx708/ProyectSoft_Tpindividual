@@ -11,8 +11,8 @@ namespace Application.Interfaces
     {
         List<ComandaMercaderia> GetListaComandaMercaderia();
 
-        ComandaMercaderia GetComanda(int comandaMercaderia);
+        ComandaMercaderia GetComanda(int ComandaMercaderia);
 
-        List<ComandaMercaderia> GetListaComandaMercaderiaBycomandaId(Guid comandaId);
+        List<ComandaMercaderia> GetListaComandaMercaderiaByComandaId(Guid ComandaId);
     }
 }

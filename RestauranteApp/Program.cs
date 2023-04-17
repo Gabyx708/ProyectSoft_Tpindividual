@@ -13,8 +13,8 @@ namespace RestauranteApp
         {
 
             Menu App = new Menu();
-            App.handle();
-            App.optionsLabel();
+            App.Handle();
+            App.OptionsLabel();
             
         }
     }

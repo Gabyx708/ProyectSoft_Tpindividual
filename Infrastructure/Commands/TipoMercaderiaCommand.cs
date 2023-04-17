@@ -15,26 +15,26 @@ namespace Infrastructure.Commands
 
         public TipoMercaderiaCommand()
         {
-            context = AppDbcontext.getInstance();  
+            context = AppDbcontext.GetInstance();  
         }
 
-        public void insertTipoMercaderia(TipoMercaderia nuevoTipoMercaderia)
+        public void InsertTipoMercaderia(TipoMercaderia NuevoTipoMercaderia)
         {
-            context.Add(nuevoTipoMercaderia);
+            context.Add(NuevoTipoMercaderia);
             context.SaveChanges();
         }
 
-        public void removeTipoMercaderia(int tipoMercaderiaId)
+        public void RemoveTipoMercaderia(int TipoMercaderiaId)
         {
-            TipoMercaderia tipoMercaderiaEliminar = context.TipoMercaderias.Single(tm => tm.TipoMercaderiaId == tipoMercaderiaId);
+            TipoMercaderia tipoMercaderiaEliminar = context.TipoMercaderias.Single(tm => tm.TipoMercaderiaId == TipoMercaderiaId);
             context.Remove<TipoMercaderia>(tipoMercaderiaEliminar);
             context.SaveChanges();
         }
 
-        public void updateTipoMercaderia(int tipoMercaderiaId)
+        public void UpdateTipoMercaderia(int TipoMercaderiaId)
         {
-            TipoMercaderia tipoMercaderiaEliminar = context.TipoMercaderias.Single(tm => tm.TipoMercaderiaId == tipoMercaderiaId);
-            context.Update<TipoMercaderia>(tipoMercaderiaEliminar);
+            TipoMercaderia TipoMercaderiaEliminar = context.TipoMercaderias.Single(tm => tm.TipoMercaderiaId == TipoMercaderiaId);
+            context.Update<TipoMercaderia>(TipoMercaderiaEliminar);
             context.SaveChanges();
         }
     }

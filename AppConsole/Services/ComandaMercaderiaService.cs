@@ -13,48 +13,48 @@ namespace Application.Services
         private readonly IComandaMercaderiaCommand _command;
         private readonly IComandaMercaderiaQuery _query;
 
-        public ComandaMercaderiaService(IComandaMercaderiaCommand command, IComandaMercaderiaQuery query)
+        public ComandaMercaderiaService(IComandaMercaderiaCommand Command, IComandaMercaderiaQuery Query)
         {
-            _command = command;
-            _query = query;
+            _command = Command;
+            _query = Query;
         }
 
-        public ComandaMercaderia createComandaMercaderia(int MercaderiaId, Guid ComandaId)
+        public ComandaMercaderia CreateComandaMercaderia(int MercaderiaId, Guid ComandaId)
         {
-            var comandaMercaderia = new ComandaMercaderia
+            var ComandaMercaderia = new ComandaMercaderia
             {
                 MercaderiaId = MercaderiaId,
                 ComandaId = ComandaId
        
             };
 
-            _command.insertComandaMercaderia(comandaMercaderia);
-            return comandaMercaderia;
+            _command.InsertComandaMercaderia(ComandaMercaderia);
+            return ComandaMercaderia;
         }
 
-        public void delteComandaMercaderia(int comandaMercaderiaId)
+        public void DeleteComandaMercaderia(int ComandaMercaderiaId)
         {
-            _command.removeComandaMercaderia(comandaMercaderiaId);
+            _command.RemoveComandaMercaderia(ComandaMercaderiaId);
         }
 
-        public List<ComandaMercaderia> getAll()
+        public List<ComandaMercaderia> GetAll()
         {
             return _query.GetListaComandaMercaderia();
         }
 
-        public List<ComandaMercaderia> getByComandaId(Guid comandaId)
+        public List<ComandaMercaderia> GetByComandaId(Guid ComandaId)
         {
-            return _query.GetListaComandaMercaderiaBycomandaId(comandaId);
+            return _query.GetListaComandaMercaderiaByComandaId(ComandaId);
         }
 
-        public ComandaMercaderia getByid(int comandaMercaderiaId)
+        public ComandaMercaderia GetById(int ComandaMercaderiaId)
         {
-            return _query.GetComanda(comandaMercaderiaId);
+            return _query.GetComanda(ComandaMercaderiaId);
         }
 
-        public void updateComandaMercaderia(int comandaMercaderiaId)
+        public void UpdateComandaMercaderia(int ComandaMercaderiaId)
         {
-            _command.updateComandaMercaderia(comandaMercaderiaId);
+            _command.UpdateComandaMercaderia(ComandaMercaderiaId);
         }
     }
 }

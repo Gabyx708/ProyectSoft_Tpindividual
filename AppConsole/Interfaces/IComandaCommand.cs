@@ -9,10 +9,10 @@ namespace Application.Interfaces
 {
     public interface IComandaCommand
     {
-        void insertComanda(Comanda nuevaComanda);
+        void InsertComanda(Comanda NuevaComanda);
 
-        void removeComanda(int comandaId);
+        void RemoveComanda(int ComandaId);
 
-        void updateComanda(int comandaId);
+        void UpdateComanda(int ComandaId);
     }
 }

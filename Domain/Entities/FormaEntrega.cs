@@ -11,6 +11,6 @@ namespace Domain.Entities
         public int FormaEntregaId { get; set; }
         public string Descripcion { get; set; }
 
-        public IList<Comanda> comandas { get; set; }
+        public IList<Comanda> Comandas { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vGDZ0q7sJBpptxeURk6GlRHF7jJa3LZz3jNag555LZx6S9ca23BzlXRBWrrcbUkQGA2aUGX85gA2lXdAf8nXSA==",
+  "dgSpecHash": "huKoiNwMMTDw7wGFqY2cdu/VrjFn0BFRFvUGWt2GtsLPEZSpYZ7JWf4KZ4Bs7BfHA4GQxF5RHgTMBruVkZ7spg==",
   "success": true,
-  "projectFilePath": "D:\\1_C_2023_UNI\\Proyect_soft\\TPindividual\\AppConsole\\Application.csproj",
+  "projectFilePath": "C:\\Users\\Administrador\\Downloads\\TP1-ORM-Coria_Gabriel\\AppConsole\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrador\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Administrador\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.4\\microsoft.entityframeworkcore.7.0.4.nupkg.sha512",

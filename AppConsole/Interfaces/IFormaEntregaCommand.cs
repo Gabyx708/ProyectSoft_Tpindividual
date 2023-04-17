@@ -9,10 +9,10 @@ namespace Application.Interfaces
 {
     public interface IFormaEntregaCommand
     {
-        void InsertFormaEntrega(FormaEntrega formaEntrega);
+        void InsertFormaEntrega(FormaEntrega FormaEntrega);
 
-        void RemoveFormaEntrega(int formaentregaid);
+        void RemoveFormaEntrega(int FormaEntregaid);
 
-        void UpdateFormaEntrega(int formaentregaid);
+        void UpdateFormaEntrega(int FormaEntregaid);
     }
 }

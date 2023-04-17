@@ -9,16 +9,16 @@ namespace Application.Interfaces
 {
     public interface IComandaMercaderiaService
     {
-        ComandaMercaderia createComandaMercaderia(int MercaderiaId, Guid ComandaId);
+        ComandaMercaderia CreateComandaMercaderia(int MercaderiaId, Guid ComandaId);
 
-        void updateComandaMercaderia(int comandaMercaderiaId);
+        void UpdateComandaMercaderia(int ComandaMercaderiaId);
 
-        void delteComandaMercaderia(int comandaMercaderiaId);
+        void DeleteComandaMercaderia(int ComandaMercaderiaId);
 
-        List<ComandaMercaderia> getAll();
+        List<ComandaMercaderia> GetAll();
 
-        ComandaMercaderia getByid(int comandaMercaderiaId);
+        ComandaMercaderia GetById(int ComandaMercaderiaId);
 
-        List<ComandaMercaderia> getByComandaId(Guid comandaId);
+        List<ComandaMercaderia> GetByComandaId(Guid ComandaId);
     }
 }
