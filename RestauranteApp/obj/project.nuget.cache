@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dQSqcNCDDnrIhqa2gRKzns+Nvz8H48xBEqNOLGfmUPtjQJoQXty2hYn4iZYFY2P01IYtMm7Of+BrSOJle84qWQ==",
+  "dgSpecHash": "0/nnQKL4FRa/HH73zW2+HIvvIa6PrJnwWF8/wVoE+FPm6s2F8Jsm9QJY7JdmVZ+eHoTODwuk5KCbRE+dv7j05A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrador\\Downloads\\TP1-ORM-Coria_Gabriel\\RestauranteApp\\RestauranteApp.csproj",
+  "projectFilePath": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\RestauranteApp\\RestauranteApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrador\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Administrador\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

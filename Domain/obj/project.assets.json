@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrador\\Downloads\\TP1-ORM-Coria_Gabriel\\Domain\\Domain.csproj",
+      "projectUniqueName": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Administrador\\Downloads\\TP1-ORM-Coria_Gabriel\\Domain\\Domain.csproj",
+      "projectPath": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrador\\Downloads\\TP1-ORM-Coria_Gabriel\\Domain\\obj\\",
+      "outputPath": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

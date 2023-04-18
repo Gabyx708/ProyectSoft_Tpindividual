@@ -39,6 +39,8 @@ namespace Infrastructure.Persistence
         {
             modelBuilder.Entity<Comanda>(entity =>
             {
+                entity.ToTable("Comanda");
+
                 entity.HasKey(e => e.ComandaId);
                 entity.Property(e => e.ComandaId).ValueGeneratedOnAdd();
                 entity.Property(e => e.FormaEntregaId).IsRequired();
@@ -54,9 +56,12 @@ namespace Infrastructure.Persistence
 
             modelBuilder.Entity<Mercaderia>(entity =>
             {
+                entity.ToTable("Mercaderia");
+
                 entity.HasKey(e => e.MercaderiaId);
                 entity.Property(e => e.MercaderiaId).ValueGeneratedOnAdd();
                 entity.Property(e => e.Precio).IsRequired();
+                entity.Property(e => e.Nombre).HasMaxLength(50).IsRequired();
                 entity.Property(e => e.Ingredientes).HasMaxLength(255).IsRequired();
                 entity.Property(e => e.Preparacion).HasMaxLength(255).IsRequired();
                 entity.Property(e => e.Imagen).HasMaxLength(255).IsRequired();
@@ -69,7 +74,10 @@ namespace Infrastructure.Persistence
 
             modelBuilder.Entity<ComandaMercaderia>(entity =>
             {
+                entity.ToTable("ComandaMercaderia");
+
                 entity.HasKey(e => e.ComandaMercaderiaId);
+                entity.HasKey(e => new { e.MercaderiaId, e.ComandaId });
                 entity.Property(e => e.ComandaMercaderiaId).ValueGeneratedOnAdd();
 
                 entity.HasOne<Mercaderia>(m => m.Mercaderia)
@@ -83,6 +91,8 @@ namespace Infrastructure.Persistence
 
             modelBuilder.Entity<TipoMercaderia>(entity =>
             {
+                entity.ToTable("TipoMercaderia");
+
                 entity.HasKey(e => e.TipoMercaderiaId);
                 entity.Property(e => e.TipoMercaderiaId).ValueGeneratedOnAdd();
                 entity.Property(e => e.Descripcion).HasMaxLength(50).IsRequired();
@@ -90,6 +100,9 @@ namespace Infrastructure.Persistence
             });
 
             modelBuilder.Entity<FormaEntrega>(entity => {
+
+                entity.ToTable("FormaEntrega");
+
                 entity.HasKey(e => e.FormaEntregaId);
                 entity.Property(e => e.FormaEntregaId).ValueGeneratedOnAdd();
                 entity.Property(e => e.Descripcion).HasMaxLength(50).IsRequired();
