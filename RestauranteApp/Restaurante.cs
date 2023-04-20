@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RestauranteApp
 {
-    internal class Restaurante
+    internal class Restaurante : CleanConsole
     {
         private static Restaurante instance = null;
         private string name = "Restaurant Name";
@@ -26,22 +26,26 @@ namespace RestauranteApp
 
         public void VerMercaderias()
         {
+            CleanConsola();
             new RestauranteVerMercaderias().ListarMercaderia();
         }
 
         public void HacerPedido()
         {
+            CleanConsola();
             new RestauranteVerMercaderias().ListaMercaderiaSimplificada();
             new RestauranteHacerPedido().hacerUnPedido();
         }
 
         public void ConsultarPedido()
         {
+            CleanConsola();
             new RestauranVerPedidos().ConsultarPedido();
         }
 
         public void VerPedidos()
         {
+            CleanConsola();
             new RestauranVerPedidos().ListarPedidos();
         }
 

@@ -77,7 +77,7 @@ namespace Infrastructure.Persistence
                 entity.ToTable("ComandaMercaderia");
 
                 entity.HasKey(e => e.ComandaMercaderiaId);
-                entity.HasKey(e => new { e.MercaderiaId, e.ComandaId });
+               // entity.HasKey(e => new { e.MercaderiaId, e.ComandaId });
                 entity.Property(e => e.ComandaMercaderiaId).ValueGeneratedOnAdd();
 
                 entity.HasOne<Mercaderia>(m => m.Mercaderia)

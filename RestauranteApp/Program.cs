@@ -4,6 +4,7 @@ using Domain.Entities;
 using Infrastructure.Commands;
 using Infrastructure.Persistence;
 using Infrastructure.Querys;
+using RestauranteApp.Logs;
 
 namespace RestauranteApp
 {
@@ -12,7 +13,10 @@ namespace RestauranteApp
         static void Main(string[] args)
         {
 
-            Menu App = new Menu();
+            string LogPath = @"D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\RestauranteApp\\Logs\\logs\\";
+            LogCreator logs = new LogCreator(LogPath);
+
+            Menu App = new Menu(logs);
             App.Handle();
             App.OptionsLabel();
             

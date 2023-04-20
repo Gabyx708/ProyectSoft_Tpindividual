@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace RestauranteApp.ResatauranteFunctions
 {
-    public class RestauranteHacerPedido
+    public class RestauranteHacerPedido : CleanConsole
     {
         private IComandaService service = new ComandaService(new ComandaCommand(),new ComandaQuery());
         private IComandaMercaderiaService serviceComandaMercaderia = new ComandaMercaderiaService(new ComandaMercaderiaCommand(),new ComandaMercaderiaQuery());
@@ -72,6 +72,7 @@ namespace RestauranteApp.ResatauranteFunctions
 
         private void notificarComanda(Comanda NuevaComanda)
         {
+            CleanConsola();
             Console.WriteLine("\n!En hora buena , su pedido se ah generado con exito!");
             Console.WriteLine("*************************************************************************************");
             Console.WriteLine("PEDIDO COD: " + NuevaComanda.ComandaId + " A PAGAR: U$D: $" + NuevaComanda.PrecioTotal);
