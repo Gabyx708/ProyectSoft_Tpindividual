@@ -13,7 +13,7 @@ namespace RestauranteApp.ResatauranteFunctions
 {
     public class RestauranteFormasDeEntrega
     {
-        private IFormaEntregaService service = new FormaEntregaServices(new FormaEntregaCommand(),new FormaEntregaQuery());
+        private readonly IFormaEntregaService service = new FormaEntregaServices(new FormaEntregaCommand(),new FormaEntregaQuery());
 
         public List<FormaEntrega> FormaEntregas()
         {

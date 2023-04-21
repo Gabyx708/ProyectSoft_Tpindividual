@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RestauranteApp
 {
-    internal class Restaurante : CleanConsole
+    internal class Restaurante : Utilities
     {
         private static Restaurante instance = null;
         private string name = "Restaurant Name";
@@ -34,7 +34,7 @@ namespace RestauranteApp
         {
             CleanConsola();
             new RestauranteVerMercaderias().ListaMercaderiaSimplificada();
-            new RestauranteHacerPedido().hacerUnPedido();
+            new RestauranteHacerPedido().HacerUnPedido();
         }
 
         public void ConsultarPedido()

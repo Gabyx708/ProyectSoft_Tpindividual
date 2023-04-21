@@ -2,7 +2,6 @@
 using Domain.Entities;
 using Infrastructure.Commands;
 using Infrastructure.Querys;
-using RestauranteApp.Logs;
 using RestauranteApp.ResatauranteFunctions;
 using System;
 using System.Collections.Generic;
@@ -12,15 +11,10 @@ using System.Threading.Tasks;
 
 namespace RestauranteApp
 {
-    internal class Menu : CleanConsole
+    public class Menu : Utilities
     {
         private Restaurante restauran = Restaurante.GetInstance();
-        private LogCreator Logs = null;
 
-        public Menu(LogCreator Logs)
-        {
-            this.Logs = Logs;
-        }
         public void Handle()
         {
             Console.WriteLine("***************************************");
@@ -35,18 +29,26 @@ namespace RestauranteApp
             Console.WriteLine("2 - Ver Pedidos");
             Console.WriteLine("3 - Ver Menu Completo");
             Console.WriteLine("4 - Consultar un pedido");
-            Console.WriteLine("5 o cualquier otro numero - salir del restaurante");
+            Console.WriteLine("5 - salir del restaurante");
 
             Console.Write("Ingresa tu opcion a continuacion: ");
 
             try
             {
                 int opcionElegida = int.Parse(Console.ReadLine());
+
+                if (opcionElegida > 5 || opcionElegida < 1)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+
                 ElegirOpcion(opcionElegida);
+         
             }
-            catch (FormatException e)
+            catch (Exception e)
             {
-                Logs.AddLog("ERROR: "+e.Message);
+                string Comment = "solo usar numeros que esten dentro de las opciones validas";
+                ErrorNotify(e.Message,Comment);
                 OptionsLabel();
             }
                       

@@ -14,7 +14,7 @@ namespace RestauranteApp.ResatauranteFunctions
     public class RestauranteVerMercaderias
     {
 
-        private IMercaderiaService service = new MercaderiaService(new MercaderiaCommand(), new MercaderiaQuery());
+        private readonly IMercaderiaService service = new MercaderiaService(new MercaderiaCommand(), new MercaderiaQuery());
 
         public void ListarMercaderia()
         {
