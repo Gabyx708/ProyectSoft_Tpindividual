@@ -980,11 +980,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\AppConsole\\Application.csproj",
+      "projectUniqueName": "D:\\1_C_2023_UNI\\TP2\\ProyectSoft_Tpindividual\\AppConsole\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\AppConsole\\Application.csproj",
+      "projectPath": "D:\\1_C_2023_UNI\\TP2\\ProyectSoft_Tpindividual\\AppConsole\\Application.csproj",
       "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\AppConsole\\obj\\",
+      "outputPath": "D:\\1_C_2023_UNI\\TP2\\ProyectSoft_Tpindividual\\AppConsole\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1001,8 +1001,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\Domain\\Domain.csproj"
+            "D:\\1_C_2023_UNI\\TP2\\ProyectSoft_Tpindividual\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\1_C_2023_UNI\\TP2\\ProyectSoft_Tpindividual\\Domain\\Domain.csproj"
             }
           }
         }

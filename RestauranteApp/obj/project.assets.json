@@ -3530,11 +3530,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\RestauranteApp\\RestauranteApp.csproj",
+      "projectUniqueName": "D:\\1_C_2023_UNI\\TP2\\ProyectSoft_Tpindividual\\RestauranteApp\\RestauranteApp.csproj",
       "projectName": "RestauranteApp",
-      "projectPath": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\RestauranteApp\\RestauranteApp.csproj",
+      "projectPath": "D:\\1_C_2023_UNI\\TP2\\ProyectSoft_Tpindividual\\RestauranteApp\\RestauranteApp.csproj",
       "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\RestauranteApp\\obj\\",
+      "outputPath": "D:\\1_C_2023_UNI\\TP2\\ProyectSoft_Tpindividual\\RestauranteApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3551,8 +3551,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\1_C_2023_UNI\\ProyectSoft_Tpindividual\\Infrastructure\\Infrastructure.csproj"
+            "D:\\1_C_2023_UNI\\TP2\\ProyectSoft_Tpindividual\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "D:\\1_C_2023_UNI\\TP2\\ProyectSoft_Tpindividual\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
