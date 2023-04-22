@@ -3,36 +3,39 @@ using Application.Services;
 using Domain.Entities;
 using Infrastructure.Commands;
 using Infrastructure.Querys;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
 
 namespace RestauranteApp.ResatauranteFunctions
 {
     public class RestauranteHacerPedido : Utilities
     {
-        private readonly IComandaService service = new ComandaService(new ComandaCommand(),new ComandaQuery());
-        private readonly IComandaMercaderiaService serviceComandaMercaderia = new ComandaMercaderiaService(new ComandaMercaderiaCommand(),new ComandaMercaderiaQuery());
-        private readonly IMercaderiaService serviceMercaderia = new MercaderiaService(new MercaderiaCommand(), new MercaderiaQuery());
-        private void CrearPedido(List<Mercaderia>Platillos,FormaEntrega FormaDeEntrega)
+        private readonly IComandaService _service;
+        private readonly IComandaMercaderiaService _serviceComandaMercaderia;
+        private readonly IMercaderiaService _serviceMercaderia;
+
+        public RestauranteHacerPedido()
+        {
+            _service = new ComandaService(new ComandaCommand(), new ComandaQuery()); ;
+            _serviceComandaMercaderia = new ComandaMercaderiaService(new ComandaMercaderiaCommand(), new ComandaMercaderiaQuery()); ;
+            _serviceMercaderia = new MercaderiaService(new MercaderiaCommand(), new MercaderiaQuery()); ;
+        }
+
+        private void CrearPedido(List<Mercaderia> Platillos, FormaEntrega FormaDeEntrega)
         {
             int PrecioTotal = 0;
             DateTime Fecha = DateTime.Now;
+
 
             foreach (Mercaderia mercaderia in Platillos)
             {
                 PrecioTotal = mercaderia.Precio + PrecioTotal;
             }
 
-            Comanda nuevaComanda = service.CreateComanda(FormaDeEntrega,PrecioTotal,Fecha);
+            Comanda nuevaComanda = _service.CreateComanda(FormaDeEntrega, PrecioTotal, Fecha);
 
             foreach (Mercaderia mercaderia in Platillos)
             {
-                serviceComandaMercaderia.CreateComandaMercaderia(mercaderia.MercaderiaId, nuevaComanda.ComandaId);
+                _serviceComandaMercaderia.CreateComandaMercaderia(mercaderia.MercaderiaId, nuevaComanda.ComandaId);
             }
 
             NotificarComanda(nuevaComanda);
@@ -41,7 +44,8 @@ namespace RestauranteApp.ResatauranteFunctions
         public void HacerUnPedido()
         {
             int PlatilloElegido;
-            int LimiteId =  serviceMercaderia.GetAll().Count();
+            bool FlagError = false;
+            int LimiteId = _serviceMercaderia.GetAll().Count();
 
             var mercaderias = new MercaderiaService(new MercaderiaCommand(), new MercaderiaQuery());
             List<Mercaderia> listaDePlatillos = new List<Mercaderia>();
@@ -50,6 +54,11 @@ namespace RestauranteApp.ResatauranteFunctions
             {
                 Console.Write("\n Elige los platillos del menu utilizando su Codigo (para finalizar escribe O): ");
                 PlatilloElegido = int.Parse(Console.ReadLine());
+                
+                if (PlatilloElegido == 0 || PlatilloElegido == null)
+                {
+                    throw new InvalidDataException();
+                }
 
                 while (PlatilloElegido != 0)
                 {
@@ -66,11 +75,16 @@ namespace RestauranteApp.ResatauranteFunctions
             catch (Exception e)
             {
                 string Comment = "Ups! ocurrio un problema por favor intenta crear tu pedido de nuevo";
-                ErrorNotify(e.Message,Comment);
+                FlagError = true;
+                ErrorNotify(e.Message, Comment);
                 BackHome();
             }
 
-            ElegirFormaEntrega(listaDePlatillos);
+            if (FlagError == false)
+            {
+                ElegirFormaEntrega(listaDePlatillos);
+            }
+            
         }
 
         private void ElegirFormaEntrega(List<Mercaderia> listaDePlatillos)
@@ -94,11 +108,15 @@ namespace RestauranteApp.ResatauranteFunctions
                 {
                     CrearPedido(listaDePlatillos, EntregaPedido.UsarFormaEntrega(FormaEntregaElegida));
                 }
+                else
+                {
+                    throw new IndexOutOfRangeException();
+                }
             }
             catch (Exception e)
             {
                 string Comment = "Ups! tu forma de entrega fue invalida , realiza el pedido nuevamente!";
-                ErrorNotify(e.Message,Comment);
+                ErrorNotify(e.Message, Comment);
                 BackHome();
             }
         }
@@ -109,7 +127,7 @@ namespace RestauranteApp.ResatauranteFunctions
             Console.WriteLine("\n!En hora buena , su pedido se ah generado con exito!");
             Console.WriteLine("*************************************************************************************");
             Console.WriteLine("PEDIDO COD: " + NuevaComanda.ComandaId + " A PAGAR: U$D: $" + NuevaComanda.PrecioTotal);
-            Console.WriteLine("forma de entrega: "+NuevaComanda.FormaEntrega.Descripcion);
+            Console.WriteLine("forma de entrega: " + NuevaComanda.FormaEntrega.Descripcion);
             Console.WriteLine("*************************************************************************************\n");
         }
     }

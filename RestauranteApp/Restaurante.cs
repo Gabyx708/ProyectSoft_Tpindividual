@@ -1,20 +1,15 @@
 ﻿using Domain.Entities;
 using RestauranteApp.ResatauranteFunctions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestauranteApp
 {
     internal class Restaurante : Utilities
     {
         private static Restaurante instance = null;
-        private string name = "Restaurant Name";
+        private string _name = "Restaurant Name";
         public static Restaurante GetInstance()
         {
-            if(instance == null)
+            if (instance == null)
             {
                 instance = new Restaurante();
             }
@@ -22,7 +17,7 @@ namespace RestauranteApp
         }
 
         public string Name
-        { get { return name; } }
+        { get { return _name; } }
 
         public void VerMercaderias()
         {
@@ -45,7 +40,6 @@ namespace RestauranteApp
 
         public void VerPedidos()
         {
-            CleanConsola();
             new RestauranVerPedidos().ListarPedidos();
         }
 

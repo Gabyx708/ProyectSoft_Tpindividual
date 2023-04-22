@@ -12,7 +12,7 @@ namespace RestauranteApp
         static void Main(string[] args)
         {
 
-            Menu App = new Menu();
+            Menu App = Menu.GetInstance();
             App.Handle();
             App.OptionsLabel();
             

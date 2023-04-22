@@ -3,23 +3,28 @@ using Application.Services;
 using Domain.Entities;
 using Infrastructure.Commands;
 using Infrastructure.Querys;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestauranteApp.ResatauranteFunctions
 {
     public class RestauranVerPedidos : Utilities
     {
-        private readonly IComandaService service = new ComandaService(new ComandaCommand(),new ComandaQuery());
-        private readonly IMercaderiaService serviceMercaderia = new MercaderiaService(new MercaderiaCommand(),new MercaderiaQuery());
-        private readonly IFormaEntregaService serviceEntrega = new FormaEntregaServices(new FormaEntregaCommand(),new FormaEntregaQuery());
-        private readonly IComandaMercaderiaService serviceComandaMercaderia = new ComandaMercaderiaService(new ComandaMercaderiaCommand(),new ComandaMercaderiaQuery());
+        private readonly IComandaService _service;
+        private readonly IMercaderiaService _serviceMercaderia;
+        private readonly IFormaEntregaService _serviceEntrega;
+        private readonly IComandaMercaderiaService _serviceComandaMercaderia;
+
+        public RestauranVerPedidos()
+        {
+            _service = new ComandaService(new ComandaCommand(), new ComandaQuery()); ;
+            _serviceMercaderia = new MercaderiaService(new MercaderiaCommand(), new MercaderiaQuery()); ;
+            _serviceEntrega = new FormaEntregaServices(new FormaEntregaCommand(), new FormaEntregaQuery()); ;
+            _serviceComandaMercaderia = new ComandaMercaderiaService(new ComandaMercaderiaCommand(), new ComandaMercaderiaQuery()); ;
+        }
+
 
         public void ConsultarPedido()
         {
+            CleanConsola();
             Console.Write("\n ingresa el CODIGO DEL PEDIDO O  TIPEA X PARA CANCELAR: ");
             string Codigo = Console.ReadLine();
             Comanda Comanda = null;
@@ -31,7 +36,7 @@ namespace RestauranteApp.ResatauranteFunctions
 
             try
             {
-               Comanda = service.GetById(Guid.Parse(Codigo));
+                Comanda = _service.GetById(Guid.Parse(Codigo));
 
                 if (Comanda == null)
                 {
@@ -41,36 +46,37 @@ namespace RestauranteApp.ResatauranteFunctions
             catch (Exception e)
             {
                 string Comment = "el id ingresado no es valido , o esta en el formato incorrecto";
-                ErrorNotify(e.Message,Comment);
+                ErrorNotify(e.Message, Comment);
                 ConsultarPedido();
             }
-            
-            List<ComandaMercaderia> Union = serviceComandaMercaderia.GetByComandaId(Comanda.ComandaId);
+
+            List<ComandaMercaderia> Union = _serviceComandaMercaderia.GetByComandaId(Comanda.ComandaId);
 
             Console.WriteLine("\n ***PEDIDO CONSULTADO***");
-            Console.WriteLine("| COD: "+Comanda.ComandaId+" fecha: "+Comanda.Fecha+" |");
+            Console.WriteLine("| COD: " + Comanda.ComandaId + " fecha: " + Comanda.Fecha + " |");
             Console.WriteLine("| ----------- DETALLE DEL PEDIDO  ------------------- |");
-           
-            
+
+
             foreach (var plato in Union)
             {
-               Mercaderia itemDePedido =  serviceMercaderia.GetById(plato.MercaderiaId);
+                Mercaderia itemDePedido = _serviceMercaderia.GetById(plato.MercaderiaId);
 
-                Console.WriteLine("Descripcion: "+itemDePedido.Nombre+"------ $"+itemDePedido.Precio);
+                Console.WriteLine("Descripcion: " + itemDePedido.Nombre + "------ $" + itemDePedido.Precio);
             }
 
-            Console.WriteLine("\n| entrega: "+serviceEntrega.GetById(Comanda.FormaEntregaId).Descripcion+" TOTAL U$D: $"+Comanda.PrecioTotal+"|");
+            Console.WriteLine("\n| entrega: " + _serviceEntrega.GetById(Comanda.FormaEntregaId).Descripcion + " TOTAL U$D: $" + Comanda.PrecioTotal + "|");
             Console.WriteLine(" ");
         }
 
         public void ListarPedidos()
         {
-            List<Comanda> Pedidos = service.GetAll();
+            CleanConsola();
+            List<Comanda> Pedidos = _service.GetAll();
 
-            foreach (var item in Pedidos) 
+            foreach (var item in Pedidos)
             {
-                Comanda Comanda = service.GetById(item.ComandaId);
-                List<ComandaMercaderia> Union = serviceComandaMercaderia.GetByComandaId(Comanda.ComandaId);
+                Comanda Comanda = _service.GetById(item.ComandaId);
+                List<ComandaMercaderia> Union = _serviceComandaMercaderia.GetByComandaId(Comanda.ComandaId);
 
 
                 Console.WriteLine("\n");
@@ -80,16 +86,16 @@ namespace RestauranteApp.ResatauranteFunctions
 
                 foreach (var plato in Union)
                 {
-                    Mercaderia itemDePedido = serviceMercaderia.GetById(plato.MercaderiaId);
+                    Mercaderia itemDePedido = _serviceMercaderia.GetById(plato.MercaderiaId);
 
                     Console.WriteLine("Descripcion: " + itemDePedido.Nombre + "------ $" + itemDePedido.Precio);
                 }
 
-                Console.WriteLine("\n| entrega: " + serviceEntrega.GetById(Comanda.FormaEntregaId).Descripcion + " TOTAL U$D: $" + Comanda.PrecioTotal + "|");
+                Console.WriteLine("\n| entrega: " + _serviceEntrega.GetById(Comanda.FormaEntregaId).Descripcion + " TOTAL U$D: $" + Comanda.PrecioTotal + "|");
                 Console.WriteLine("\n ");
             }
         }
     }
 
-   
+
 }

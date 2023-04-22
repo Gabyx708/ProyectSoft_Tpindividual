@@ -24,7 +24,7 @@ namespace RestauranteApp.ResatauranteFunctions
 
         public void BackHome()
         {
-            Menu Aux = new Menu();
+            Menu Aux = Menu.GetInstance();
             Aux.OptionsLabel();
         }
     }

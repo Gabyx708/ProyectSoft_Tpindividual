@@ -3,26 +3,26 @@ using Application.Services;
 using Domain.Entities;
 using Infrastructure.Commands;
 using Infrastructure.Querys;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestauranteApp.ResatauranteFunctions
 {
     public class RestauranteFormasDeEntrega
     {
-        private readonly IFormaEntregaService service = new FormaEntregaServices(new FormaEntregaCommand(),new FormaEntregaQuery());
+        private readonly IFormaEntregaService _service;
+
+        public RestauranteFormasDeEntrega()
+        {
+            _service = new FormaEntregaServices(new FormaEntregaCommand(), new FormaEntregaQuery()); ;
+        }
 
         public List<FormaEntrega> FormaEntregas()
         {
-            return service.GetAll();
+            return _service.GetAll();
         }
 
         public FormaEntrega UsarFormaEntrega(int Id)
         {
-            return service.GetById(Id);
+            return _service.GetById(Id);
         }
     }
 }

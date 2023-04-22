@@ -13,12 +13,22 @@ namespace RestauranteApp
 {
     public class Menu : Utilities
     {
-        private Restaurante restauran = Restaurante.GetInstance();
+        private Restaurante _restauran = Restaurante.GetInstance();
+        private static Menu instance = null;
+
+        public static Menu GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new Menu();
+            }
+            return instance;
+        }
 
         public void Handle()
         {
             Console.WriteLine("***************************************");
-            Console.WriteLine("****** BINEVENID@ A " + restauran.Name + " ***");
+            Console.WriteLine("****** BINEVENID@ A " + _restauran.Name + " ***");
             Console.WriteLine("***************************************");
         }
 
@@ -58,11 +68,11 @@ namespace RestauranteApp
         {
             switch(opcion)
             {
-                case 1: restauran.HacerPedido(); OptionsLabel(); break; //mejorar metodo
-                    case 2: restauran.VerPedidos(); OptionsLabel(); break;
-                        case 3: restauran.VerMercaderias(); OptionsLabel(); break;
-                            case 4: restauran.ConsultarPedido(); OptionsLabel(); break;
-                                default: Console.Clear(); Console.WriteLine("Esperamos verte pronto!! "); break;
+                case 1: _restauran.HacerPedido(); OptionsLabel(); break; //mejorar metodo
+                    case 2: _restauran.VerPedidos(); OptionsLabel(); break;
+                        case 3: _restauran.VerMercaderias(); OptionsLabel(); break;
+                            case 4: _restauran.ConsultarPedido(); OptionsLabel(); break;
+                                case 5: CleanConsola(); Console.WriteLine("Esperamos verte pronto!! "); break;
             }
         }
 

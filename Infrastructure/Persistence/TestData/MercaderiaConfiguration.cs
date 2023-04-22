@@ -31,7 +31,7 @@ namespace Infrastructure.Persistence.TestData
                         TipoMercaderiaId = 4, Precio = 100, 
                         Ingredientes = "frigoles , pan rallado , cebolla , harina", 
                         Preparacion = "mezcla frijoles negros cocidos, cebolla, ajo, pan rallado y forma la hamburguesa. Cocina a la parrilla o sartén. ¡Disfruta!", 
-                        Imagen = "https://i0.wp.com/veganista.es/wp-content/uploads/2018/04/IMG_20180424_141630.jpg?resize=624%2C509" },
+                        Imagen = "https://i0.wp.com/veganista.es/wp-content/uploads/2018/04/IMG_20180424_141630.jpg" },
 
                     new Mercaderia { 
                         MercaderiaId = 3, 
@@ -79,7 +79,8 @@ namespace Infrastructure.Persistence.TestData
                         TipoMercaderiaId = 3, Precio = 100, 
                         Ingredientes = "pasta , cebolla , ajo",
                         Preparacion = "cocina la pasta. Sofríe carne molida con cebolla y ajo. Agrega tomate triturado y cocine a fuego lento. Sirve la salsa sobre la pasta y decora con queso parmesano rallado. ¡Buen apetito!", 
-                        Imagen = "https://cdn7.kiwilimon.com/recetaimagen/30306/960x640/33677.jpg.jpg" },
+                        Imagen = "https://workweeklunch.com/wp-content/uploads/2022/10/spaghetti.bolognese-4.jpg"
+                    },
 
                     new Mercaderia { 
                         MercaderiaId = 9, 
@@ -87,7 +88,7 @@ namespace Infrastructure.Persistence.TestData
                         TipoMercaderiaId = 1, Precio = 900, 
                         Ingredientes = "arroz , pimiento , caldo de pollo", 
                         Preparacion = "sofríe ajo, cebolla y pimiento en aceite. Agrega arroz, caldo de pollo, azafrán y condimentos. Añade mariscos, pollo y guisantes. Cocine a fuego lento hasta que el arroz esté tierno. ¡Disfruta de la auténtica paella!", 
-                        Imagen = "https://www.nestleprofessional-latam.com/sites/default/files/styles/np_recipe_detail/public/2022-07/paella.png?itok=CBvKkcsa" },
+                        Imagen = "https://www.nestleprofessional-latam.com/sites/default/files/styles/np_recipe_detail/public/2022-07/paella.png" },
 
                     new Mercaderia { 
                         MercaderiaId = 10, 
@@ -103,7 +104,7 @@ namespace Infrastructure.Persistence.TestData
                         TipoMercaderiaId = 1, Precio = 900, 
                         Ingredientes = "fideos , cebolla , pimiento", 
                         Preparacion = "cocine los fideos y escurrir. Saltear cebolla, pimiento, zanahoria y champiñones en aceite. Agregue los fideos y salsa de soja. Opcional: carne o camarones. ¡Listo para servir!", 
-                        Imagen = "https://cdn5.recetasdeescandalo.com/wp-content/uploads/2020/08/Chow-mein-de-pollo-y-verduras-unos-fideos-chinos-salteados-riquisimos.jpg.webp" },
+                        Imagen = "https://cdn5.recetasdeescandalo.com/wp-content/uploads/2020/08/Chow-mein-de-pollo-y-verduras-unos-fideos-chinos-salteados-riquisimos.jpg" },
 
                     new Mercaderia { 
                         MercaderiaId = 12,
@@ -166,7 +167,8 @@ namespace Infrastructure.Persistence.TestData
                         TipoMercaderiaId = 1, Precio = 600, 
                         Ingredientes = "pavo , queso , mostaza",
                         Preparacion = "tuesta pan de trigo. Agrega pechuga de pavo, tomate, lechuga, queso y mostaza", 
-                        Imagen = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ham-and-cheese-sandwich-royalty-free-image-1609846416.?crop=1.00xw:1.00xh;0,0&resize=640:*" },
+                        Imagen = "https://cdn0.recetasgratis.net/es/posts/7/2/0/sandwich_de_pavo_y_queso_55027_orig.jpg"
+                    },
 
                     new Mercaderia { 
                         MercaderiaId = 20, 
@@ -174,7 +176,8 @@ namespace Infrastructure.Persistence.TestData
                         TipoMercaderiaId = 1, Precio = 100, 
                         Ingredientes = "papas , cebolla", 
                         Preparacion = "saltea cebolla y papas en rodajas en una sartén con aceite. Batir huevos y agregar a la sartén. Cocine a fuego lento hasta que la tortilla esté cocida. Dale la vuelta para cocinar ambos lados", 
-                        Imagen = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4VJEEZcpMPvS7ovEhw0oH8O-6LmpLetpa6A&usqp=CAU" }
+                        Imagen = "https://www.clarin.com/img/2022/05/16/W9sHDNg6p_340x340__1.jpg"
+                    }
 
                 );
         }
