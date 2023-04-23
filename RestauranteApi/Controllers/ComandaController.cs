@@ -21,5 +21,22 @@ namespace RestauranteApi.Controllers
             var result = _services.GetAll();
             return new JsonResult(result);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(Guid id)
+        {
+            var result = _services.GetById(id);
+
+            if (result == null)
+                    return NotFound();
+
+            return new JsonResult(result);
+        }
+
+        [HttpPost]
+        public IActionResult action()
+        {
+            return null;
+        }
     }
 }

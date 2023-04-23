@@ -26,7 +26,18 @@ namespace RestauranteApi.Controllers
         public IActionResult Get(int id)
         {
             var result = _services.GetById(id);
+
+            if(result == null)
+                return NotFound();
+
             return new JsonResult(result);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _services.DeleteMercaderia(id);
+            return new JsonResult(new {Mercaderia = "delte"});
         }
     }
 }
