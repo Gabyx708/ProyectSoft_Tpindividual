@@ -12,21 +12,21 @@ namespace Infrastructure.Querys
 {
     public class MercaderiaQuery : IMercaderiaQuery
     {
-        private readonly AppDbcontext context;
+        private readonly AppDbcontext _context;
 
-        public MercaderiaQuery()
+        public MercaderiaQuery(AppDbcontext context)
         {
-            context = AppDbcontext.GetInstance();
+            _context = context;
         }
 
         public List<Mercaderia> GetListaMercaderia()
         {
-            return context.Mercaderias.ToList<Mercaderia>();
+            return _context.Mercaderias.ToList<Mercaderia>();
         }
 
         public Mercaderia GetMercaderia(int MercaderiaId)
         {
-            var MercaderiaEncontrada = context.Find<Mercaderia>(MercaderiaId);
+            var MercaderiaEncontrada = _context.Mercaderias.Find(MercaderiaId);
             if (MercaderiaEncontrada != null)
             {
                 return MercaderiaEncontrada;

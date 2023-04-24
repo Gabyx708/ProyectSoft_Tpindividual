@@ -11,18 +11,6 @@ namespace Infrastructure.Persistence
 {
     public class AppDbcontext : DbContext 
     {   
-
-        private static AppDbcontext instance = null;
-        public static AppDbcontext GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new AppDbcontext();
-            }
-
-            return instance;
-        }
-
         public DbSet<Comanda> Comandas { get; set; }
         public DbSet<ComandaMercaderia> ComandaMercaderias { get; set; }
         public DbSet<FormaEntrega> FormaEntregas { get; set; }

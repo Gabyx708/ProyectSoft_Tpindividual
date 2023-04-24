@@ -11,31 +11,31 @@ namespace Infrastructure.Commands
 {
     public class TipoMercaderiaCommand : ITipoMercaderiaCommand
     {
-        private readonly AppDbcontext context;
+        private readonly AppDbcontext _context;
 
-        public TipoMercaderiaCommand()
+        public TipoMercaderiaCommand(AppDbcontext context)
         {
-            context = AppDbcontext.GetInstance();  
+            _context = context;
         }
 
         public void InsertTipoMercaderia(TipoMercaderia NuevoTipoMercaderia)
         {
-            context.Add(NuevoTipoMercaderia);
-            context.SaveChanges();
+            _context.Add(NuevoTipoMercaderia);
+            _context.SaveChanges();
         }
 
         public void RemoveTipoMercaderia(int TipoMercaderiaId)
         {
-            TipoMercaderia tipoMercaderiaEliminar = context.TipoMercaderias.Single(tm => tm.TipoMercaderiaId == TipoMercaderiaId);
-            context.Remove<TipoMercaderia>(tipoMercaderiaEliminar);
-            context.SaveChanges();
+            TipoMercaderia tipoMercaderiaEliminar = _context.TipoMercaderias.Single(tm => tm.TipoMercaderiaId == TipoMercaderiaId);
+            _context.Remove<TipoMercaderia>(tipoMercaderiaEliminar);
+            _context.SaveChanges();
         }
 
         public void UpdateTipoMercaderia(int TipoMercaderiaId)
         {
-            TipoMercaderia TipoMercaderiaEliminar = context.TipoMercaderias.Single(tm => tm.TipoMercaderiaId == TipoMercaderiaId);
-            context.Update<TipoMercaderia>(TipoMercaderiaEliminar);
-            context.SaveChanges();
+            TipoMercaderia TipoMercaderiaEliminar = _context.TipoMercaderias.Single(tm => tm.TipoMercaderiaId == TipoMercaderiaId);
+            _context.Update<TipoMercaderia>(TipoMercaderiaEliminar);
+            _context.SaveChanges();
         }
     }
 }

@@ -22,15 +22,34 @@ namespace RestauranteApi
 
             //custom
 
+            //Database context
+            builder.Services.AddDbContext<AppDbcontext>();
+
             //Comanda
             builder.Services.AddScoped<IComandaCommand, ComandaCommand>();
             builder.Services.AddScoped<IComandaQuery, ComandaQuery>();
-            builder.Services.AddScoped<IComandaService , ComandaService>();
+            builder.Services.AddScoped<IComandaService,ComandaService>();
 
             //Mercaderia 
             builder.Services.AddScoped<IMercaderiaCommand, MercaderiaCommand>();
             builder.Services.AddScoped<IMercaderiaQuery, MercaderiaQuery>();
             builder.Services.AddScoped<IMercaderiaService,MercaderiaService>();
+
+            //ComandaMercaderia
+            builder.Services.AddScoped<IComandaMercaderiaCommand, ComandaMercaderiaCommand>();
+            builder.Services.AddScoped<IComandaMercaderiaQuery, ComandaMercaderiaQuery>();
+            builder.Services.AddScoped<IComandaMercaderiaService, ComandaMercaderiaService>();
+
+            //FormaEntrega
+            builder.Services.AddScoped<IFormaEntregaCommand, FormaEntregaCommand>();
+            builder.Services.AddScoped<IFormaEntregaQuery, FormaEntregaQuery>();
+            builder.Services.AddScoped<IFormaEntregaService, FormaEntregaServices>();
+
+            //TipoMercaderia
+            builder.Services.AddScoped<ITipoMercaderiaCommand, TipoMercaderiaCommand>();
+            builder.Services.AddScoped<ITipoMercaderiaQuery, TipoMercaderiaQuery>();
+            builder.Services.AddScoped<ITipoMercaderiaService, TipoMercaderiaService>();
+
 
 
             var app = builder.Build();

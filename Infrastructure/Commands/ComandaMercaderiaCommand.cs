@@ -11,31 +11,31 @@ namespace Infrastructure.Commands
 {
     public class ComandaMercaderiaCommand : IComandaMercaderiaCommand
     {
-        private readonly AppDbcontext context;
+        private readonly AppDbcontext _context;
 
-        public ComandaMercaderiaCommand()
+        public ComandaMercaderiaCommand(AppDbcontext context)
         {
-            context = AppDbcontext.GetInstance();
+            _context = context;
         }
 
         public void InsertComandaMercaderia(ComandaMercaderia NuevoComandaMercaderia)
         {
-            context.Add(NuevoComandaMercaderia);
-            context.SaveChanges();
+            _context.Add(NuevoComandaMercaderia);
+            _context.SaveChanges();
         }
 
         public void RemoveComandaMercaderia(int ComandaMercaderiaId)
         {
-            ComandaMercaderia ComandaMercaderiaEliminar = context.ComandaMercaderias.Single(cm => cm.ComandaMercaderiaId == ComandaMercaderiaId);
-            context.Remove<ComandaMercaderia>(ComandaMercaderiaEliminar);
-            context.SaveChanges();
+            ComandaMercaderia ComandaMercaderiaEliminar = _context.ComandaMercaderias.Single(cm => cm.ComandaMercaderiaId == ComandaMercaderiaId);
+            _context.Remove<ComandaMercaderia>(ComandaMercaderiaEliminar);
+            _context.SaveChanges();
         }
 
         public void UpdateComandaMercaderia(int ComandaMercaderiaId)
         {
-            ComandaMercaderia ComandaMercaderiaUpdate = context.ComandaMercaderias.Single(cm => cm.ComandaMercaderiaId == ComandaMercaderiaId);
-            context.Update<ComandaMercaderia>(ComandaMercaderiaUpdate);
-            context.SaveChanges();
+            ComandaMercaderia ComandaMercaderiaUpdate = _context.ComandaMercaderias.Single(cm => cm.ComandaMercaderiaId == ComandaMercaderiaId);
+            _context.Update<ComandaMercaderia>(ComandaMercaderiaUpdate);
+            _context.SaveChanges();
         }
     }
 }

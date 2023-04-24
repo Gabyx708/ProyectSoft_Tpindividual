@@ -1,4 +1,6 @@
 ﻿using Application.Interfaces;
+using Application.Models.Mercaderia;
+using Application.Models.TipoMercaderia;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace Application.Services
     {
         private readonly IMercaderiaCommand _command;
         private readonly IMercaderiaQuery _query;
+        private readonly ITipoMercaderiaService _serviceTipoMercaderia;
 
         public MercaderiaService(IMercaderiaCommand Command, IMercaderiaQuery Query)
         {
@@ -47,7 +50,10 @@ namespace Application.Services
 
         public Mercaderia GetById(int MercaderiaId)
         {
-            return _query.GetMercaderia(MercaderiaId);
+            var mercaderia = _query.GetMercaderia(MercaderiaId);
+
+
+            return mercaderia;
         }
 
         public void UpdateMercaderia(int MercaderiaId)

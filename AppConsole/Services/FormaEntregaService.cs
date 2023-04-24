@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Application.Models.FormaEntrega;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -41,9 +42,17 @@ namespace Application.Services
             return _query.GetListFormaEntrega();
         }
 
-        public FormaEntrega GetById(int FormaEntregaId)
+        public FormaEntrega_ GetById(int FormaEntregaId)
         {
-            return _query.GetFormaEntrega(FormaEntregaId);
+            var formaEntrega= _query.GetFormaEntrega(FormaEntregaId);
+
+            var formaEntregaResponse = new FormaEntrega_
+            {
+                id = formaEntrega.FormaEntregaId,
+                descripcion = formaEntrega.Descripcion
+            };
+
+            return formaEntregaResponse;
         }
 
         public void UpdateFormaEntrega(int FormaEntregaId)

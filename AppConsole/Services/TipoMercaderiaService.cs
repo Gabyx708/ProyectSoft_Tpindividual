@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Application.Models.TipoMercaderia;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ namespace Application.Services
 
         public TipoMercaderia GetById(int TipoMercaderiaId)
         {
-            return _query.GetTipoMercaderia(TipoMercaderiaId);
+            return _query.GetTipoMercaderia(TipoMercaderiaId); 
         }
 
         public void UpdateTipoMercaderia(int TipoMercaderiaId)

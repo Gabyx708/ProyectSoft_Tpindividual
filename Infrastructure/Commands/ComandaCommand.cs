@@ -11,30 +11,31 @@ namespace Infrastructure.Commands
 {
     public class ComandaCommand : IComandaCommand
     {
-        private readonly AppDbcontext context;
-        
-        public ComandaCommand()
+        private readonly AppDbcontext _context;
+
+        public ComandaCommand(AppDbcontext context)
         {
-            context = AppDbcontext.GetInstance();
+            _context = context;
         }
+
         public void InsertComanda(Comanda NuevaComanda)
         {
-            context.Add(NuevaComanda);
-            context.SaveChanges();
+            _context.Add(NuevaComanda);
+            _context.SaveChanges();
         }
 
         public void RemoveComanda(int ComandaId)
         {
-            Comanda ComandaaEliminar = context.Comandas.Single(c => c.ComandaId.Equals(ComandaId));
-            context.Remove<Comanda>(ComandaaEliminar);
-            context.SaveChanges();
+            Comanda ComandaaEliminar = _context.Comandas.Single(c => c.ComandaId.Equals(ComandaId));
+            _context.Remove<Comanda>(ComandaaEliminar);
+            _context.SaveChanges();
         }
 
         public void UpdateComanda(int ComandaId)
         {
-            Comanda ComandaaEditar = context.Comandas.Single(c => c.ComandaId.Equals(ComandaId));
-            context.Update(ComandaaEditar);
-            context.SaveChanges();
+            Comanda ComandaaEditar = _context.Comandas.Single(c => c.ComandaId.Equals(ComandaId));
+            _context.Update(ComandaaEditar);
+            _context.SaveChanges();
         }
     }
 }

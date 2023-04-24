@@ -11,31 +11,31 @@ namespace Infrastructure.Commands
 {
     public class MercaderiaCommand : IMercaderiaCommand
     {
-        private readonly AppDbcontext context;
+        private readonly AppDbcontext _context;
 
-        public MercaderiaCommand()
+        public MercaderiaCommand(AppDbcontext context)
         {
-            context = AppDbcontext.GetInstance();
+            _context = context;
         }
 
         public void InsertMercaderia(Mercaderia NuevaMercaderia)
         {
-            context.Add(NuevaMercaderia);
-            context.SaveChanges();
+            _context.Add(NuevaMercaderia);
+            _context.SaveChanges();
         }
 
         public void RemoveMercaderia(int MercaderiaId)
         {
-            Mercaderia MercaderiaEliminar = context.Mercaderias.Single(m => m.MercaderiaId == MercaderiaId);
-            context.Remove<Mercaderia>(MercaderiaEliminar);
-            context.SaveChanges();
+            Mercaderia MercaderiaEliminar = _context.Mercaderias.Single(m => m.MercaderiaId == MercaderiaId);
+            _context.Remove<Mercaderia>(MercaderiaEliminar);
+            _context.SaveChanges();
         }
 
         public void UpdateMercaderia(int MercaderiaId)
         {
-            Mercaderia MercaderiaUpdate = context.Mercaderias.Single(m => m.MercaderiaId == MercaderiaId);
-            context.Update<Mercaderia>(MercaderiaUpdate);
-            context.SaveChanges();
+            Mercaderia MercaderiaUpdate = _context.Mercaderias.Single(m => m.MercaderiaId == MercaderiaId);
+            _context.Update<Mercaderia>(MercaderiaUpdate);
+            _context.SaveChanges();
         }
     }
 }

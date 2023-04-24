@@ -11,16 +11,16 @@ namespace Infrastructure.Querys
 {
     public class FormaEntregaQuery : IFormaEntregaQuery
     {
-        private readonly AppDbcontext context;
+        private readonly AppDbcontext _context;
 
-        public FormaEntregaQuery()
+        public FormaEntregaQuery(AppDbcontext context)
         {
-            context = AppDbcontext.GetInstance();
+            _context = context;
         }
 
         public FormaEntrega GetFormaEntrega(int FormaEntregaId)
         {
-           var FormaEntregaEncontrada = context.Find<FormaEntrega>(FormaEntregaId);
+           var FormaEntregaEncontrada = _context.Find<FormaEntrega>(FormaEntregaId);
             if(FormaEntregaEncontrada != null)
             {
                 return FormaEntregaEncontrada;
@@ -30,7 +30,7 @@ namespace Infrastructure.Querys
 
         public List<FormaEntrega> GetListFormaEntrega()
         {
-           return context.FormaEntregas.ToList<FormaEntrega>();
+           return _context.FormaEntregas.ToList<FormaEntrega>();
         }
     }
 }

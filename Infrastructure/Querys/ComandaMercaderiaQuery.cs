@@ -13,16 +13,16 @@ namespace Infrastructure.Querys
 {
     public class ComandaMercaderiaQuery : IComandaMercaderiaQuery
     {
-        private readonly AppDbcontext context;
+        private readonly AppDbcontext _context;
 
-        public ComandaMercaderiaQuery()
+        public ComandaMercaderiaQuery(AppDbcontext context)
         {
-            context = AppDbcontext.GetInstance();
+            _context = context;
         }
 
         public ComandaMercaderia GetComanda(int ComandaMercaderiaId)
         {
-            var ComandaMercaderiaEncontrada = context.Find<ComandaMercaderia>(ComandaMercaderiaId);
+            var ComandaMercaderiaEncontrada = _context.Find<ComandaMercaderia>(ComandaMercaderiaId);
             if (ComandaMercaderiaEncontrada != null)
             {
                 return ComandaMercaderiaEncontrada;
@@ -32,12 +32,12 @@ namespace Infrastructure.Querys
 
         public List<ComandaMercaderia> GetListaComandaMercaderia()
         {
-            return context.ComandaMercaderias.ToList<ComandaMercaderia>();
+            return _context.ComandaMercaderias.ToList<ComandaMercaderia>();
         }
 
         public List<ComandaMercaderia> GetListaComandaMercaderiaByComandaId(Guid ComandaId)
         {
-            return context.ComandaMercaderias.Where(cm => cm.ComandaId.Equals(ComandaId)).ToList();
+            return _context.ComandaMercaderias.Where(cm => cm.ComandaId.Equals(ComandaId)).ToList();
         }
     }
 }

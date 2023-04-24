@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Models.FormaEntrega;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,6 @@ namespace Application.Interfaces
         void UpdateFormaEntrega(int FormaEntregaId);
         void DeleteFormaEntrega(int FormaEntregaId);
         List<FormaEntrega> GetAll();
-        FormaEntrega GetById(int FormaEntregaId);
+        FormaEntrega_ GetById(int FormaEntregaId);
     }
 }

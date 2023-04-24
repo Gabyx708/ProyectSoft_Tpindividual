@@ -11,31 +11,31 @@ namespace Infrastructure.Commands
 {
     public  class FormaEntregaCommand : IFormaEntregaCommand
     {
-        private readonly AppDbcontext context;
+        private readonly AppDbcontext _context;
 
-        public FormaEntregaCommand()
+        public FormaEntregaCommand(AppDbcontext context)
         {
-            context = AppDbcontext.GetInstance();
+            _context = context;
         }
 
         public  void InsertFormaEntrega(FormaEntrega FormaEntrega)
         {
-            context.Add(FormaEntrega);
-            context.SaveChanges();
+            _context.Add(FormaEntrega);
+            _context.SaveChanges();
         }
 
         public  void RemoveFormaEntrega(int FormaEntregaId)
         {
-            FormaEntrega FormaEntregaEliminar = context.FormaEntregas.Single(fe => fe.FormaEntregaId == FormaEntregaId);
-            context.Remove<FormaEntrega>(FormaEntregaEliminar);
-            context.SaveChanges();
+            FormaEntrega FormaEntregaEliminar = _context.FormaEntregas.Single(fe => fe.FormaEntregaId == FormaEntregaId);
+            _context.Remove<FormaEntrega>(FormaEntregaEliminar);
+            _context.SaveChanges();
         }
 
         public void UpdateFormaEntrega(int FormaEntregaId)
         {
-            FormaEntrega FormaEntregaUpdate = context.FormaEntregas.Single(fe => fe.FormaEntregaId == FormaEntregaId);
-            context.Update<FormaEntrega>(FormaEntregaUpdate);
-            context.SaveChanges();
+            FormaEntrega FormaEntregaUpdate = _context.FormaEntregas.Single(fe => fe.FormaEntregaId == FormaEntregaId);
+            _context.Update<FormaEntrega>(FormaEntregaUpdate);
+            _context.SaveChanges();
         }
     }
 }

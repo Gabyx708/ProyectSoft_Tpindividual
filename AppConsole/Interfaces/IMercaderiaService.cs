@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Models.Mercaderia;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
