@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Application.Models.Comanda;
+using Application.Models.Mercaderia;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,14 +17,16 @@ namespace Application.Services
         private readonly IComandaMercaderiaService _commandaMercaderia;
         private readonly IMercaderiaService _mercaderiaService;
         private readonly IFormaEntregaService _formaEntregaService;
+        private readonly ITipoMercaderiaService _tipoMercaderiaService;
 
-        public ComandaService(IComandaCommand Command, IComandaQuery Query, IComandaMercaderiaService commandaMercaderia, IMercaderiaService mercaderiaService, IFormaEntregaService formaEntregaService)
+        public ComandaService(IComandaCommand Command, IComandaQuery Query, IComandaMercaderiaService commandaMercaderia, IMercaderiaService mercaderiaService, IFormaEntregaService formaEntregaService, ITipoMercaderiaService tipoMercaderiaService)
         {
             _command = Command;
             _query = Query;
             _commandaMercaderia = commandaMercaderia;
             _mercaderiaService = mercaderiaService;
             _formaEntregaService = formaEntregaService;
+            _tipoMercaderiaService = tipoMercaderiaService;
         }
 
         public Comanda CreateComanda(ComandaRequest request)
@@ -33,7 +36,7 @@ namespace Application.Services
 
             foreach (var platilloPrecio in mercaderias)
             {
-                int precio = _mercaderiaService.GetById(platilloPrecio).Precio;
+               double precio = _mercaderiaService.GetById(platilloPrecio).precio;
                precioComanda =(int)precio+ precioComanda;
             }
 
@@ -64,20 +67,30 @@ namespace Application.Services
             return _query.GetListaComanda();
         }
 
-        public Comanda GetById(Guid ComandaId)
+        public ComandaGetResponse GetById(Guid ComandaId)
         {
             var comanda = _query.GetComanda(ComandaId);
+            List<ComandaMercaderia> listaComandaMercaderia = _commandaMercaderia.GetByComandaId(ComandaId);
+            List<MercaderiaGetResponse> mercaderiaGetResponses = new List<MercaderiaGetResponse>();
 
-            var comandaGetResponse = new ComandaGetResponse
+            foreach (var item in listaComandaMercaderia)
             {
-                id = comanda.ComandaId,
-                total = comanda.PrecioTotal,
-                fecha = comanda.Fecha.ToString(),
-                formaEntrega = _formaEntregaService.GetById(comanda.FormaEntregaId),
-                mercaderias = null
-            };
+                var mercaderia = _mercaderiaService.GetById(item.MercaderiaId);
+                mercaderiaGetResponses.Add(mercaderia);
+            }
 
-            return _query.GetComanda(ComandaId);
+            if (comanda != null)
+            {
+                return new ComandaGetResponse
+                {
+                    id = comanda.ComandaId,
+                    total = comanda.PrecioTotal,
+                    fecha = comanda.Fecha.ToString(),
+                    mercaderias = mercaderiaGetResponses,
+                    formaEntrega = _formaEntregaService.GetById(comanda.FormaEntregaId)
+                };
+            }
+            return null;
         }
 
         public void UpdateComanda(int ComandaId)

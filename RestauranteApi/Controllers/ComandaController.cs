@@ -31,10 +31,6 @@ namespace RestauranteApi.Controllers
         public IActionResult Get(Guid id)
         {
             var result = _services.GetById(id);
-
-            if (result == null)
-                    return NotFound(new {message = "no se encontraron comandas"});
-
             return new JsonResult(result);
         }
 

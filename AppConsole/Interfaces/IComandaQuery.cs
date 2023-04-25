@@ -11,7 +11,7 @@ namespace Application.Interfaces
     {
         List<Comanda> GetListaComanda();
 
-        Comanda GetComanda(Guid Formaentregaid);
+        Comanda GetComanda(Guid ComandaId);
 
         List<Comanda> GetByDate(DateTime date);
     }

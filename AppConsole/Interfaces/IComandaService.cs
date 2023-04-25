@@ -15,6 +15,6 @@ namespace Application.Interfaces
         void DeleteComanda(int ComandaId);
         List<Comanda> GetAll();
         List<Comanda> GetByDate(string date);
-        Comanda GetById(Guid ComandaId);
+        ComandaGetResponse GetById(Guid ComandaId);
     }
 }

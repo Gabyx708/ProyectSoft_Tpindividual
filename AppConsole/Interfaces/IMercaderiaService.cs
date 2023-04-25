@@ -19,6 +19,6 @@ namespace Application.Interfaces
 
         List<Mercaderia> GetAll();
 
-        Mercaderia GetById(int MercaderiaId);
+        MercaderiaGetResponse GetById(int MercaderiaId);
     }
 }

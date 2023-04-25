@@ -46,13 +46,16 @@ namespace Application.Services
         {
             var formaEntrega= _query.GetFormaEntrega(FormaEntregaId);
 
-            var formaEntregaResponse = new FormaEntrega_
+            if (formaEntrega != null)
             {
-                id = formaEntrega.FormaEntregaId,
-                descripcion = formaEntrega.Descripcion
-            };
+                return new FormaEntrega_
+                {
+                    id = formaEntrega.FormaEntregaId,
+                    descripcion = formaEntrega.Descripcion
+                };
+            }
 
-            return formaEntregaResponse;
+            return null;
         }
 
         public void UpdateFormaEntrega(int FormaEntregaId)

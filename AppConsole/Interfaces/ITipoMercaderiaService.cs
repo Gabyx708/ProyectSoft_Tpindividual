@@ -18,6 +18,6 @@ namespace Application.Interfaces
 
         List<TipoMercaderia> GetAll();
 
-        TipoMercaderia GetById(int TipomercaderiaId);
+        TipoMercaderiaResponse GetById(int TipomercaderiaId);
     }
 }

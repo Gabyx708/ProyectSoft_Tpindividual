@@ -16,7 +16,6 @@ namespace Application.Models.Mercaderia
 
         public TipoMercaderiaResponse tipo { get; set; }
 
-        public string ingredientes { get; set; }
         public string imagen { get; set; }
     }
 }

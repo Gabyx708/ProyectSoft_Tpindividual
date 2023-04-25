@@ -20,12 +20,8 @@ namespace Infrastructure.Querys
 
         public FormaEntrega GetFormaEntrega(int FormaEntregaId)
         {
-           var FormaEntregaEncontrada = _context.Find<FormaEntrega>(FormaEntregaId);
-            if(FormaEntregaEncontrada != null)
-            {
-                return FormaEntregaEncontrada;
-            }
-            return null;
+            var formaEntrega = _context.FormaEntregas.FirstOrDefault(fe => fe.FormaEntregaId == FormaEntregaId);
+            return formaEntrega;
         }
 
         public List<FormaEntrega> GetListFormaEntrega()

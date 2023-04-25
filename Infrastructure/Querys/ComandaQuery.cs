@@ -1,11 +1,6 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
 using Infrastructure.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Querys
 {
@@ -35,7 +30,7 @@ namespace Infrastructure.Querys
 
         public List<Comanda> GetByDate(DateTime date)
         {
-            return _context.Comandas.Where(c => c.Fecha.Day == date.Day && c.Fecha.Month == date.Month && c.Fecha.Year == date.Year ).ToList();
+            return _context.Comandas.Where(c => c.Fecha.Day == date.Day && c.Fecha.Month == date.Month && c.Fecha.Year == date.Year).ToList();
         }
     }
 }

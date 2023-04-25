@@ -42,9 +42,20 @@ namespace Application.Services
             return _query.GetListaTipoMercaderia();
         }
 
-        public TipoMercaderia GetById(int TipoMercaderiaId)
+        public TipoMercaderiaResponse GetById(int TipoMercaderiaId)
         {
-            return _query.GetTipoMercaderia(TipoMercaderiaId); 
+            var tipoMercaderia =  _query.GetTipoMercaderia(TipoMercaderiaId);
+
+            if (tipoMercaderia !=null)
+            {
+                return new TipoMercaderiaResponse
+                {
+                    id = tipoMercaderia.TipoMercaderiaId,
+                    Descripcion = tipoMercaderia.Descripcion
+                };
+            }
+
+            return null;
         }
 
         public void UpdateTipoMercaderia(int TipoMercaderiaId)

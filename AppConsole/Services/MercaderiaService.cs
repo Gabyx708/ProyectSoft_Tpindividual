@@ -16,10 +16,12 @@ namespace Application.Services
         private readonly IMercaderiaQuery _query;
         private readonly ITipoMercaderiaService _serviceTipoMercaderia;
 
-        public MercaderiaService(IMercaderiaCommand Command, IMercaderiaQuery Query)
+
+        public MercaderiaService(IMercaderiaCommand Command, IMercaderiaQuery Query, ITipoMercaderiaService serviceTipoMercaderia)
         {
             _command = Command;
             _query = Query;
+            _serviceTipoMercaderia = serviceTipoMercaderia;
         }
 
         public Mercaderia CreateMercaderia(int MercaderiaId, string Nombre, int TipoMercaderiaId, string Ingredientes, string Preparacion, string Imagen,int Precio)
@@ -48,12 +50,24 @@ namespace Application.Services
             return _query.GetListaMercaderia();
         }
 
-        public Mercaderia GetById(int MercaderiaId)
+
+        public MercaderiaGetResponse GetById(int MercaderiaId)
         {
             var mercaderia = _query.GetMercaderia(MercaderiaId);
 
+            if (mercaderia != null)
+            {
+                return new MercaderiaGetResponse
+                {
+                    id = mercaderia.MercaderiaId,
+                    nombre = mercaderia.Nombre,
+                    precio = mercaderia.Precio,
+                    tipo = _serviceTipoMercaderia.GetById(mercaderia.TipoMercaderiaId),
+                    imagen = mercaderia.Imagen
+                };
+            }
 
-            return mercaderia;
+            return null;
         }
 
         public void UpdateMercaderia(int MercaderiaId)
